@@ -1,0 +1,53 @@
+ion-list.list-md, ion-list.list-sm {
+  padding: 0px;
+}
+
+h1 {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#addAnswerColumn {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#correctHighlightSpan {
+  color: var(--ion-color-success);
+  font-weight: bold;
+}
+
+#swipeInstructions {
+  padding-left: 1rem;
+}
+
+#optionEdit {
+  background-color: white; 
+  margin: 1rem; 
+  border: 1px solid black; 
+  color: black;
+}
+
+#pc {
+  #buttonContainer {
+    margin-top: 2rem;
+    text-align: center;
+    button {
+      width: 80%;
+    }
+  }
+}
+
+section#pc {
+  padding-bottom: 5rem;
+}
+
+#feedbackMessage {
+  padding: .5rem;
+  margin: .5rem 1rem .5rem 1rem;
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+  border: 1px solid var(--master-color-error-shade);
+  border-radius: 14px;
+  text-align: center;
+}

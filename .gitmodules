@@ -1,0 +1,16 @@
+
+[submodule "src/assets/interfaces/icrud"]
+	path = src/assets/interfaces/icrud
+	url = https://github.com/ConciseConstructs/icrud.git
+[submodule "src/assets/interfaces/login-server-service-interface"]
+	path = src/assets/interfaces/login-server-service-interface
+	url = https://github.com/ConciseConstructs/login-server-service-interface.git
+[submodule "src/assets/interfaces/auth-server-service-interface"]
+	path = src/assets/interfaces/auth-server-service-interface
+	url = https://github.com/ConciseConstructs/auth-server-service-interface.git
+[submodule "src/assets/interfaces/database-server-service-interface"]
+	path = src/assets/interfaces/database-server-service-interface
+	url = https://github.com/ConciseConstructs/database-server-service-interface.git
+[submodule "src/assets/interfaces/email-server-service-interface"]
+	path = src/assets/interfaces/email-server-service-interface
+	url = https://github.com/ConciseConstructs/email-server-service-interface.git

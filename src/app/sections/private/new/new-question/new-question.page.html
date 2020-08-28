@@ -1,0 +1,40 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="New" displayBackButton="true"></app-mobile-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1>{{ title }}</h1>
+      </ion-col>
+      <ion-col size="12">
+        <ion-radio-group (ionSelect)="onSelectValue($event)">
+          <ion-item>
+            <ion-label>Text Input</ion-label>
+            <ion-radio slot="start" value="text"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>True / False</ion-label>
+            <ion-radio slot="start" value="boolean"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Multiple Choice</ion-label>
+            <ion-radio slot="start" value="multiple"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid">
+    <h1>{{ title }}</h1>
+    <div id="column">
+      <div id="container">
+        <p-radioButton label="Text Input" name="groupname" value="text" [(ngModel)]="type" (click)="onSelectValue()"></p-radioButton>
+        <p-radioButton label="True / False" name="groupname" value="boolean" [(ngModel)]="type" (click)="onSelectValue()"></p-radioButton>
+        <p-radioButton label="Multiple Choice" name="groupname" value="multiple" [(ngModel)]="type" (click)="onSelectValue()"></p-radioButton>
+      </div>
+    </div>
+  </div>
+</section>

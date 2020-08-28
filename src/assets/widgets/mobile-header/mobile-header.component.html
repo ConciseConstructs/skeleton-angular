@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="displayTitle">{{ title }}</ion-title>
+    <ion-buttons *ngIf="displayBackButton" slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onButtonClick('dashboard')"><ion-icon slot="start" name="speedometer"></ion-icon></ion-button>
+      <ion-button (click)="onButtonClick('search')"><ion-icon slot="start" name="search"></ion-icon></ion-button>
+      <ion-button (click)="onButtonClick('new')"><ion-icon slot="start" name="add"></ion-icon></ion-button>
+      <ion-button (click)="onButtonClick('settings')"><ion-icon slot="start" name="settings"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

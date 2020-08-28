@@ -1,0 +1,89 @@
+@import '../../../../assets/sass/master-variables.scss';
+
+#pc {
+  #grid {
+    display: grid;
+    height: 80%;
+    margin: 6rem 3rem 3rem 3rem;
+    grid-template-rows: 80px 80px 1fr;
+    grid-template-areas: 
+      "mainTitle"
+      "options"
+      "results"
+    ;
+    #mainTitle {
+      grid-area: mainTitle;
+    }
+    #options {
+      grid-area: options;
+      display: inline-block;
+      p-radioButton {
+        margin-left: 3rem;
+      }
+      #optionsPadding {
+        height: 1rem;
+      }
+    }
+    #results {
+      grid-area: results;
+      table {
+        width: 100%;
+        th, td {
+          border: 1px solid var(--master-color-dark);
+          padding: .5rem;
+        }
+        th.record, td.record {
+          width: 80%;
+        }
+        th.actions, td.actions {
+          min-width: 250px;
+        }
+        th {
+          background: var(--master-color-dark-gradient);
+        }
+        td.actions {
+          text-align: center;
+        }
+        td {
+          button {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    h1#mainTitle {
+      text-align: left;
+    }
+  }
+  #grid.medium, #grid.large, #grid.xlarge {
+    width: 70%;
+    margin: auto;
+  }
+  #grid.small {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.categoryTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.categoryButtonSubText {
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: .8rem;
+  padding: .5rem;
+}
+
+.odd {
+  background-color: var(--master-color-primary-shade);
+}
+.even {
+  background-color: var(--master-color-primary-tint)
+}

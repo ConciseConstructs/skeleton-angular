@@ -1,0 +1,19 @@
+#pc {
+  #grid {
+    display: grid;
+    margin: 6rem 3rem 3rem 3rem;
+    grid-template-areas: 
+      "title"
+      "stats"
+      "button"
+    ;
+    #button {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+}
+
+h1, h3 {
+  text-align: center;
+}

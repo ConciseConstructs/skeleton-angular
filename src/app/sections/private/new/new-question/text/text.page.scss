@@ -1,0 +1,16 @@
+#pc {
+  height: 100%;
+  #grid {
+    display: grid;
+    height: 100%;
+    margin: 6rem 3rem 0rem 3rem;
+  }
+  #grid.medium, #grid.large, #grid.xlarge {
+    width: 60%;
+    margin: auto;
+  }
+  #grid.small {
+    width: 90%;
+    margin: auto;
+  }
+}

@@ -1,0 +1,165 @@
+<form *ngIf="form && site.renderFor === 'mobile'" [formGroup]="form">
+  <ion-grid fixed style="margin-bottom: 5rem;">
+    <ion-row>
+      <ion-col size="12">
+        <h1>New Multiple Choice Question</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Question:</h3>
+        <div class="formContent">
+          <ion-item>
+            <ion-textarea formControlName="question" rows="6"></ion-textarea>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Add One Possible Answer Here:</h3>
+        <div class="formContent">
+          <ion-item>
+            <ion-textarea formControlName="newAnswerOption" rows="6"></ion-textarea>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="addAnswerColumn" size="12">
+        <ion-button color="secondary" (click)="onAddAnswerOption()">Add Answer Option</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="options">
+      <ion-col size="12">
+        <h3>Set <span id="correctHighlightSpan">Correct</span> Answer:</h3>
+        <h6 id="swipeInstructions">Swipe an answer left for options.</h6>
+        <ion-list inset="true">
+          <ion-item-sliding *ngFor="let option of options" #item>
+            <ion-item [color]="setItemColor(option)">
+              <ion-label>{{ option.answer }}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option (click)="onSelectCorrectAnswerButtonClick(option, item)">
+                <ion-button color="tertiary">Set As Correct<ion-icon name="checkmark"></ion-icon></ion-button>
+              </ion-item-option>
+              <ion-item-option (click)="onEditAnswerButtonClick(option, item)">
+                <ion-icon name="create"></ion-icon>
+              </ion-item-option>
+              <ion-item-option (click)="onDeleteAnswerButtonClick(option)">
+                <ion-icon name="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+            <div *ngIf="option.editing">
+              <ion-input id="optionEdit" type="text" [value]="option.answer" formControlName="optionEdit"></ion-input>
+              <ion-button (click)="onUpdateOptionClick(option, item)">Update</ion-button>
+            </div>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>{{ site.settings.messages.reasonFieldDescription }}</h3>
+        <div class="formContent">
+          <ion-item>
+            <ion-textarea formControlName="reason"></ion-textarea>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="tagsService.records.length > 0" size="12">
+        <h3>Tag:</h3>
+        <div class="formContent">
+          <ion-item>
+            <ion-label position="floating">Tag / Categorize</ion-label>
+            <ion-select multiple="true" placeholder="Select Categories" (ionChange)="onTagsSelect($event)">
+              <ion-select-option *ngFor="let tag of tagsService.records" [value]="tag.id" [selected]="getSelectedStatus(tag)">{{ tag.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col *ngIf="tagOptions" size="12">
+        <ion-item>
+          <ion-label position="floating">Tag / Categorize</ion-label>
+          <ion-select multiple="true" placeholder="Select Categories" (ionChange)="onTagsSelect($event)">
+            <ion-select-option *ngFor="let option of tagsService.records" [value]="option.id" [selected]="getSelectedStatus(option)">{{ option.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+    <hr class="formContent">
+    <ion-row>
+      <ion-col size="12">
+        <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+        <ion-button color="tertiary" expand="block" [disabled]="!canSubmit" (click)="onSubmitButtonClick()">{{ submitButtonLabel }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+<section *ngIf="form && site.renderFor === 'pc'" id="pc">
+  <form [formGroup]="form">
+    <div id="grid">
+      <h1>New Multiple Choice Question</h1>
+      <h3>Question:</h3>
+      <div class="formContent">
+        <textarea formControlName="question" rows="6" pTextarea></textarea>
+      </div>
+      <h3>Add One Possible Answer Here</h3>
+      <div class="formContent">
+        <textarea formControlName="newAnswerOption" rows="6" pTextarea></textarea>
+        <ion-row>
+          <ion-col id="addAnswerColumn" size="12">
+            <button label="Add Answer Option" (click)="onAddAnswerOption()" pButton></button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="options">
+          <ion-col size="12">
+            <h3>Set <span id="correctHighlightSpan">Correct</span> Answer:</h3>
+            <h6 id="swipeInstructions">Swipe an answer left for options.</h6>
+            <ion-list inset="true">
+              <ion-item-sliding *ngFor="let option of options" #item>
+                <ion-item [color]="setItemColor(option)">
+                  <ion-label>{{ option.answer }}</ion-label>
+                </ion-item>
+                <ion-item-options side="end">
+                  <ion-item-option (click)="onSelectCorrectAnswerButtonClick(option, item)">
+                    <ion-button color="tertiary">Set As Correct<ion-icon name="checkmark"></ion-icon></ion-button>
+                  </ion-item-option>
+                  <ion-item-option (click)="onEditAnswerButtonClick(option, item)">
+                    <ion-icon name="create"></ion-icon>
+                  </ion-item-option>
+                  <ion-item-option (click)="onDeleteAnswerButtonClick(option)">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-item-option>
+                </ion-item-options>
+                <div *ngIf="option.editing">
+                  <ion-input id="optionEdit" type="text" [value]="option.answer" formControlName="optionEdit"></ion-input>
+                  <ion-button (click)="onUpdateOptionClick(option, item)">Update</ion-button>
+                </div>
+              </ion-item-sliding>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+      <h3>Reason:</h3>
+      <div class="formContent">
+        <h6>{{ site.settings.messages.reasonFieldDescription }}</h6>
+        <textarea formControlName="reason" rows="6" pTextarea></textarea>
+      </div>
+      <h3>Tag:</h3>
+      <div class="formContent">
+        <p-multiSelect formControlName="tags" [options]="tagsService.records" defaultLabel="Select One" optionLabel="name"></p-multiSelect>
+      </div>
+      <hr class="formContent">
+      <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+      <div id="buttonContainer">
+        <button class="submitButton" [label]="submitButtonLabel" [disabled]="!canSubmit" (click)="onSubmitButtonClick()" pButton></button>
+      </div>
+    </div>
+  </form>
+</section>

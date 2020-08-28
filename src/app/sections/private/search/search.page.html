@@ -1,0 +1,93 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Browse" displayBackButton="true"></app-mobile-header>
+  <ion-grid fixed>
+    <ion-radio-group [ngModel]="option" (ionChange)="onBrowseOptionChange($event)">
+      <ion-row>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>
+              <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+            </ion-label>
+            <ion-radio slot="start" value="quizes" checked></ion-radio>
+          </ion-item>
+          <div class="categoryButtonSubText">Quizes</div>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>
+              <ion-icon slot="start" name="pricetag"></ion-icon>
+            </ion-label>
+            <ion-radio slot="start" value="tags"></ion-radio>
+          </ion-item>
+          <div class="categoryButtonSubText">Categories</div>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>
+              <ion-icon slot="start" name="help"></ion-icon>
+            </ion-label>
+            <ion-radio slot="start" value="questions"></ion-radio>
+          </ion-item>
+          <div class="categoryButtonSubText">Questions</div>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+    <ion-row>
+      <ion-col size="12">
+        <h1 class="categoryTitle">{{ title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h2 *ngIf="results && results.length < 1">No Records Yet</h2>
+        <ion-list *ngIf="results && results.length > 0">
+          <ion-item *ngFor="let result of results">
+            <ion-label>{{ result.name || result.title || result.question }}</ion-label>
+            <ion-buttons slot="end">
+              <ion-button (click)="onEditButtonClick(result)">
+                <ion-icon slot="start" name="create"></ion-icon>
+              </ion-button>
+              <ion-button (click)="onRemoveButtonClick(result)">
+                <ion-icon slot="start" name="trash"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <h1 id="mainTitle">Browse Records</h1>
+    <div id="options">
+      <fieldset>
+        <legend>Options</legend>
+        <p-radioButton label="Quizes" name="option" value="quizes" [(ngModel)]="option"></p-radioButton>
+        <p-radioButton label="Categories" name="option" value="tags" [(ngModel)]="option"></p-radioButton>
+        <p-radioButton label="Questions" name="option" value="questions" [(ngModel)]="option"></p-radioButton>
+      </fieldset>
+    </div>
+    <div id="results">
+      <h2 class="categoryTitle">{{ title }}</h2>
+      <h3 *ngIf="!results || results && results.length < 1">No Records Yet</h3>
+      <div *ngIf="results && results.length > 0">
+        <table>
+          <tr>
+            <th class="record">Record</th>
+            <th class="actions">Actions</th>
+          </tr>
+          <tr *ngFor="let result of results; let index = index" [ngClass]="oddEvenClass(index)">
+            <td class="record">{{ result.name || result.title || result.question }}</td>
+            <td class="actions">
+              <button pButton label="Edit" (click)="onEditButtonClick(result)"></button>
+              <button pButton label="Remove" (click)="onRemoveButtonClick(result)"></button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

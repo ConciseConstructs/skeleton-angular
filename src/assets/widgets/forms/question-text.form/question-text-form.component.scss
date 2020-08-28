@@ -1,0 +1,41 @@
+#mobile {
+  h2 {
+    text-align: center;
+  }
+}
+h1 {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#pc {
+  h1 {
+    margin-bottom: 2rem;
+  }
+  height: 100%;
+  #grid {
+    height: 100%;
+    overflow: visible;
+  }
+  #actionButton {
+    margin-top: 2rem;
+    text-align: center;
+    button {
+      width: 80%;
+    }
+  }
+}
+
+section#pc {
+  padding-bottom: 5rem;
+}
+
+#feedbackMessage {
+  padding: .5rem;
+  margin: .5rem 1rem .5rem 1rem;
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+  border: 1px solid var(--master-color-error-shade);
+  border-radius: 14px;
+  text-align: center;
+}

@@ -1,0 +1,59 @@
+h1 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+#pc {
+  #grid {
+    display: grid;
+    margin: auto;
+    grid-template-areas: 
+      "title"
+      "logout"
+      "timezones"
+      "defaultStreak"
+      "defaultStreakInput"
+      "devices"
+      "updateButton"
+    ;
+    #title {
+      grid-area: title;
+    }
+    #logout {
+      grid-area: logout;
+    }
+    #timezones {
+      grid-area: timezones;
+      margin-bottom: 2rem;
+    }
+    #defaultStreak {
+      grid-area: defaultStreak;
+    }
+    #defaultStreakInput {
+      grid-area: defaultStreakInput;
+      margin-bottom: 2rem;
+    }
+    #devices {
+      grid-area: devices;
+      margin-top: 2rem;
+    }
+  }
+  #grid.medium, #grid.large, #grid.xlarge {
+    width: 40%;
+  }
+  #grid.small {
+    width: 90%;
+  }
+  p-spinner {
+    margin-left: 1rem;
+  }
+  padding-bottom: 4rem;
+}
+
+
+
+#updateButton {
+  text-align: center;
+  button {
+    width: 80%;
+  }
+}

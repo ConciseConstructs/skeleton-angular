@@ -1,0 +1,24 @@
+.wire {
+  border: 1px dashed red;
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.formContent {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 3rem;
+}
+
+hr.formContent {
+  margin: 2rem .5rem 2rem .5rem;
+}
+
+
+.questionParagraph {
+  font-style: italic;
+  font-weight: bold;
+}

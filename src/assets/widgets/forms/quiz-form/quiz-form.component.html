@@ -1,0 +1,129 @@
+<form *ngIf="form && site.renderFor === 'mobile'" [formGroup]="form">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1 id="title">{{ buttonLabel }} Quiz</h1>
+        <h3>Quiz Name:</h3>
+        <ion-item>
+          <ion-label position="floating">Quiz Name</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Include All Questions From Categories:</h3>
+        <ion-item>
+          <ion-label>Categories</ion-label>
+          <ion-select multiple="true" placeholder="Add Categories" (ionChange)="onSelectTag($event)">
+            <ion-select-option *ngFor="let option of tagOptions" [value]="option.id" [selected]="getSelectedTagState(option)">{{ option.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Add Questions Individually</h3>
+        <ion-button color="secondary" (click)="onBrowseQuestionsButtonClick()">Browse Questions</ion-button>
+        <h6>{{ numberOfIncludedQuestions }} Questions Included Directly</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Amount of Questions When Quized</h3>
+        <ion-item>
+          <ion-label>Amount</ion-label>
+          <ion-input formControlName="questionAmount" type="number" placeholder="Choose Number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Streak</h3>
+        <p>{{ site.settings.descriptions.streak }}</p>
+        <ion-item>
+          <ion-label>Streak Number:</ion-label>
+          <ion-input formControlName="streak" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row style="margin-bottom: .5rem;">
+      <ion-col size="12">
+        <h3 style="margin-left: .4rem;">Quiz Schedule (Optional)</h3>
+      </ion-col>
+    </ion-row>
+    <ion-radio-group name="auto">
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>On</ion-label>
+            <ion-radio  slot="start" value="true" (click)="toggleSchedule()" [checked]="scheduled"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label>Off</ion-label>
+            <ion-radio slot="start" value="false"  (click)="toggleSchedule()" [checked]="!scheduled"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+    <ion-row *ngIf="scheduled">
+      <ion-col size="12">
+        <app-scheduler [record]="this.isolatedCopy.schedule" (output)="onScheduleQuiz($event)"></app-scheduler>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <hr class="formContent">
+        <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+        <ion-button type="submit" color="tertiary" expand="block" [disabled]="!form.valid" (click)="onSubmitButtonClick()">{{ submitButtonLabel }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+<section *ngIf="form && site.renderFor === 'pc'" id="pc">
+  <form [formGroup]="form">
+    <div id="grid">
+      <h1 id="title">{{ buttonLabel }} Quiz</h1>
+      <h3>Quiz Name:</h3>
+      <div class="formContent">
+        <input type="text" formControlName="name" pInputText />
+      </div>
+      <h3>Include All Questions From Categories:</h3>
+      <div class="formContent">
+        <p-multiSelect formControlName="tags" [options]="tagOptions" defaultLabel="Select One" optionLabel="name" (click)="onSelectTag($event)"></p-multiSelect>
+      </div>
+      <h3>Add Questions Individually</h3>
+      <div class="formContent">
+        <button type="button" label="Browse Questions" (click)="onBrowseQuestionsButtonClick()" pButton></button>
+        <h6>{{ numberOfIncludedQuestions }} Questions Included Directly</h6>
+      </div>
+      <h3>Amount of Questions When Quized</h3>
+      <div class="formContent">
+        <p-spinner formControlName="questionAmount"></p-spinner>
+      </div>
+      <h3>Streak</h3>
+      <div class="formContent">
+        <p>{{ site.settings.descriptions.streak }}</p>
+        <p-spinner formControlName="streak"></p-spinner>
+      </div>
+      <h3>Quiz Schedule (Optional)</h3>
+      <div id="scheduleToggleContainer" class="formContent">
+        <p-dropdown formControlName="scheduled" [options]="scheduleOptions"  placeholder="Select One" optionLabel="name" (onChange)="toggleSchedule($event)"></p-dropdown>
+      </div>
+      <div *ngIf="this.form.controls.scheduled.value && this.form.controls.scheduled.value.value" id="scheduledContainer">
+        <app-scheduler [record]="this.isolatedCopy.schedule" (output)="onScheduleQuiz($event)"></app-scheduler>
+      </div>
+      <hr class="formContent">
+      <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+      <div id="buttonContainer">
+        <button class="submitButton" [label]="submitButtonLabel" [disabled]="!canSubmit" (click)="onSubmitButtonClick()" pButton></button>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,11 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Edit" displayBackButton="true"></app-mobile-header>
+  <app-tag-form *ngIf="record" [record]="record" (output)="onUpdateButtonClick($event)"></app-tag-form>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <app-tag-form *ngIf="record" [record]="record" (output)="onUpdateButtonClick($event)"></app-tag-form>
+  </div>
+</section>

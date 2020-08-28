@@ -1,0 +1,108 @@
+:root {
+  --master-dark-contrast: #000000;
+  --master-dark-contrast-rbg: 0,0,0;
+  --master-light-contrast: #FFFFFF;
+  --master-light-contrast-rgb: 255,255,255;
+
+
+  --master-color-primary: #9B2F30;
+  --master-color-primary-rgb: 155,47,48;
+  --master-color-primary-gradient: linear-gradient(to bottom, #8E0102 0%, #110000 100%);
+  --master-color-primary-tint: #a54445;
+  --master-color-primary-tint-gradient: linear-gradient(to bottom, #A54445 0%, #532223 100%);
+  --master-color-primary-shade: #88292a;
+  --master-color-primary-shade-gradient: linear-gradient(to bottom, #88292A 0%, #441515 100%);
+  --master-color-primary-contrast: var(--master-light-contrast);
+  --master-color-primary-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-secondary: #ECC195;
+  --master-color-secondary-rgb: 236,193,142;
+  --master-color-secondary-gradient: linear-gradient(to bottom, #ECC195 50%, #76614B 100%);
+  --master-color-secondary-tint: #FFE0C1;
+  --master-color-secondary-tint-gradient: linear-gradient(to bottom, #FFE0C1 0%, #807061 100%);
+  --master-color-secondary-shade: #CEA174;
+  --master-color-secondary-shade-gradient: linear-gradient(to bottom, #CEA174 0%, #67513A 100%);
+  --master-color-secondary-contrast: var(--master-dark-contrast);
+  --master-color-secondary-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-tertiary: #3C7773;
+  --master-color-tertiary-rgb: 60,119,115;
+  --master-color-tertiary-gradient: linear-gradient(to bottom, #3C7773 0%, #1E3C3A 100%);
+  --master-color-tertiary-tint: #488D88;
+  --master-color-tertiary-tint-gradient: linear-gradient(to bottom, #488D88 0%, #244744 100%);
+  --master-color-tertiary-shade: #2D615D;
+  --master-color-tertiary-shade-gradient: linear-gradient(to bottom, #2D615D 0%, #091313 100%);
+  --master-color-tertiary-contrast: var(--master-light-contrast);
+  --master-color-tertiary-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-success: #436D49;
+  --master-color-success-rgb: 67,109,73;
+  --master-color-success-gradient: linear-gradient(to bottom, #436D49 0%, #223725 100%);
+  --master-color-success-tint: #5A8D61;
+  --master-color-success-tint-gradient: linear-gradient(to bottom, #5A8D61 0%, #2D4731 100%);
+  --master-color-success-shade: #26462A;
+  --master-color-success-shade-gradient: linear-gradient(to bottom, #26462A 0%, #080E08 100%);
+  --master-color-success-contrast: var(--master-light-contrast);
+  --master-color-success-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-warning: #F37444;
+  --master-color-warning-rgb: 243,116,68;
+  --master-color-warning-gradient: linear-gradient(to bottom, #F37444 0%, #7A3A22 100%);
+  --master-color-warning-tint:#F99771;
+  --master-color-warning-tint-gradient: linear-gradient(to bottom, #F99771 0%, #7D4C39 100%);
+  --master-color-warning-shade: #D65929;
+  --master-color-warning-shade-gradient: linear-gradient(to bottom, #D65929 0%, #6B2D15 100%);
+  --master-color-warning-contrast: var(--master-dark-contrast);
+  --master-color-warning-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-error: #B91F1F;
+  --master-color-error-rgb: 185,31,31;
+  --master-color-error-gradient: linear-gradient(to bottom, #B91F1F 0%, #5D1010 100%);
+  --master-color-error-tint: #D64E4E;
+  --master-color-error-tint-gradient: linear-gradient(to bottom, #D64E4E 0%, #6B2727 100%);
+  --master-color-error-shade: #981212;
+  --master-color-error-shade-gradient: linear-gradient(to bottom, #981212 0%, #4C0909 100%);
+  --master-color-error-contrast: #CFC252;
+  --master-color-error-contrast-rgb: 207,194,82;
+
+  --master-color-dark: #101010;
+  --master-color-dark-rgb: 34,36,40;
+  --master-color-dark-gradient: linear-gradient(to bottom, #101010 0%, #070707 100%);
+  --master-color-dark-tint: #383A3E;
+  --master-color-dark-shade: #1E2023;
+  --master-color-dark-contrast: var(--master-light-contrast);
+  --master-color-dark-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-medium: #989AA2;
+  --master-color-medium-rgb: 152,154,162;
+  --master-color-medium-gradient: linear-gradient(to bottom, #989AA2 0%, #4C4D51 100%);
+  --master-color-medium-tint: #a2a4ab;
+  --master-color-medium-shade: #86888f;
+  --master-color-medium-contrast: var(--master-dark-contrast);
+  --master-color-medium-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  // --master-color-dark: #222428;
+  // --master-color-dark-rgb: 34,36,40;
+  // --master-color-dark-gradient: linear-gradient(to bottom, #222428 0%, #070707 100%);
+  // --master-color-dark-tint: #383A3E;
+  // --master-color-dark-shade: #1E2023;
+  // --master-color-dark-contrast: var(--master-light-contrast);
+  // --master-color-dark-contrast-rgb: var(--master-light-contrast-rgb);
+
+  // --master-color-medium: #989AA2;
+  // --master-color-medium-rgb: 152,154,162;
+  // --master-color-medium-gradient: linear-gradient(to bottom, #989AA2 0%, #4C4D51 100%);
+  // --master-color-medium-tint: #a2a4ab;
+  // --master-color-medium-shade: #86888f;
+  // --master-color-medium-contrast: var(--master-dark-contrast);
+  // --master-color-medium-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-light: #F4F5F8;
+  --master-color-light-rgb: 244,245,248;
+  --master-color-light-gradient: linear-gradient(to bottom, #F4F5F8 0%, #7A7B7C 100%);
+  --master-color-light-tint: #f5f6f9;
+  --master-color-light-shade: #d7d8da;
+  --master-color-light-contrast: var(--master-dark-contrast);
+  --master-color-light-contrast-rgb: var(--master-dark-contrast-rbg);
+
+}

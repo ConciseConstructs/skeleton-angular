@@ -1,0 +1,27 @@
+#pc {
+  height: 100%;
+  width: 100%;
+  #grid {
+    display: grid;
+    margin: 6rem 3rem 3rem 3rem;
+    #column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      #container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
+        p-radioButton {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  padding-top: 3rem;
+  text-align: center;
+}

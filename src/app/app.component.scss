@@ -1,0 +1,18 @@
+div#background {
+  position: absolute;
+  background: var(--master-color-primary-gradient);
+  height: auto;
+  width: 100%;
+  #logo {
+    font-size: 63rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.198);
+    margin-left: 3rem;
+  }
+}
+
+div#main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

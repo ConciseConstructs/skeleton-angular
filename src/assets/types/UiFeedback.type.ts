@@ -1,0 +1,1 @@
+export type UiFeedback = { message:string, state:'success'|'warn'|'error' }

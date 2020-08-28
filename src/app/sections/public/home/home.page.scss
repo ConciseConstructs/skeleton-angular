@@ -1,0 +1,98 @@
+@import '../../../../assets/sass/master-variables.scss';
+
+ion-content {
+
+  #outerContainer {
+    height: 100%;
+  }
+
+  #innerContainer {
+    display: flex; flex-direction: column; height: 100%
+  }
+
+  #logoContainer {
+    height: 65%; padding-top: 4rem; text-align: center;
+
+    p {
+      text-align: center;
+    }
+
+  }
+
+  #loginSelector {
+    background-color: var(--ion-color-secondary)
+  }
+
+  #signupSelector {
+    background-color: var(--ion-color-tertiary)
+  }
+
+  #actionButtonContainer {
+    text-align: center;
+  }
+
+}
+
+
+#desktop {
+  color: var(--master-color-secondary);
+  #logoContainer {
+    padding-top: 15rem;
+  }
+  #grid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    #logo {
+      grid-area: logo;
+    }
+    #dataEntry {
+      grid-area: dataEntry;
+      padding: 2rem;
+      background-color: #7d150159;
+      border: 1px solid #520606;
+      // background-color: #7d1501;
+    }
+  }
+  .medium, .large, .xlarge {
+    grid-template-areas:
+      "logo dataEntry"
+    ;
+    grid-template-columns: 1fr 1fr;
+    padding: 15rem;
+  }
+  .small {
+    grid-template-areas:
+      "logo"
+      "dataEntry"
+    ;
+    padding: 3rem;
+  }
+
+  form {
+    text-align: center;
+    #fieldsContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .ui-inputgroup {
+        margin-bottom: 1rem;
+        i {
+          line-height: 1.25;
+        }
+      }
+    }
+  }
+
+  h5 {
+    margin-top: 3rem;
+  }
+
+
+}
+
+h5 {
+  text-align: center;
+}
+

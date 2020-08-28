@@ -1,0 +1,9 @@
+{
+  "appId": "com.conciseconstructs.qa",
+  "appName": "QA-App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "linuxAndroidStudioPath": "/home/ubuntu/android-studio/bin/studio.sh",
+  "cordova": {}
+}

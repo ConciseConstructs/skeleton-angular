@@ -1,0 +1,44 @@
+@import '../../sass/master-variables.scss';
+
+section {
+  background-color: rgba(0,0,0, .20);
+  border: 1px solid var(--master-color-dark);
+  padding: 1rem;
+}
+
+#pc {
+  #grid {
+    display: grid;
+    #rateContainer {
+      grid-area: rateContainer;
+    }
+    #unitContainer {
+      grid-area: unitContainer;
+    }
+    #timeContainer {
+      grid-area: timeContainer;
+    }
+    #summaryContainer {
+      grid-area: summaryContainer;
+    }
+  }
+  #grid.medium, #grid.large, #grid.xlarge {
+    grid-template-areas:
+    "rateContainer unitContainer timeContainer"
+    "summaryContainer summaryContainer summaryContainer"
+    ;
+  }
+  #grid.small {
+    grid-template-areas:
+      "rateContainer rateContainer"
+      "unitContainer timeContainer"
+      "summaryContainer summaryContainer"
+    ;
+  }
+}
+
+#timeContainer {
+  h6 {
+    font-size: 14px;
+  }
+}

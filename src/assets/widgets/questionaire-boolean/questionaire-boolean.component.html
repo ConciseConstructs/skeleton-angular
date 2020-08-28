@@ -1,0 +1,121 @@
+<section *ngIf="site.renderFor === 'mobile'" id="mobile">
+  <form [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <h3>Question:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">"{{ question.question }}"</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="mode === 'grade'">
+        <ion-col size="12">
+          <h3>Correct Answer:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">{{ uiAnswer }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="question.reason && mode === 'grade'">
+        <ion-col>
+          <h3>Reason:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">"{{ question.reason }}"</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <h3>Your Answer:</h3>
+          <ion-radio-group *ngIf="mode === 'exam'" ngDefaultControl formControlName="userAnswer">
+            <ion-col>
+              <div class="formContent" style="margin-bottom: 1rem">
+                <ion-item no-lines>
+                  <ion-label>True</ion-label>
+                  <ion-radio slot="start" value="true" checked="{{ question.userAnswer === true }}"></ion-radio>
+                </ion-item>
+              </div>
+            </ion-col>
+            <ion-col col-4>
+              <div class="formContent" style="margin-bottom: 1rem">
+                <ion-item no-lines>
+                  <ion-label>False</ion-label>
+                  <ion-radio slot="start" value="false" checked="{{ question.userAnswer === false }}"></ion-radio>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-radio-group>
+          <div *ngIf="mode === 'grade'" class="formContent">
+            <p class="questionParagraph">{{ uiUserAnswer }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="mode === 'grade'">
+        <ion-col size="12">
+          <h3>Grade Your Answer:</h3>
+        </ion-col>
+      </ion-row>
+      <ion-radio-group formControlName="correct">
+        <ion-row *ngIf="mode === 'grade'">
+          <ion-col size="6">
+            <div class="formContent">
+              <p-dropdown [options]="correctOptions" formControlName="correct" placeholder="Select One" optionLabel="name"></p-dropdown>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <hr class="formContent">
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="full" color="secondary" (click)="onSubmitButtonClick()">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</section>
+
+<section *ngIf="site.renderFor === 'pc'" id="pc">
+  <form [formGroup]="form" [ngClass]="site.screen.deviceClasses">
+    <h3>Question:</h3>
+      <div class="formContent">
+        <textarea rows="6" pTextarea>{{ question.question }}</textarea>
+      </div>
+    <div *ngIf="mode === 'exam'">
+      <h3>Your Answer:</h3>
+      <div class="formContent">
+        <p-radioButton label="True" name="answer" value="true" formControlName="userAnswer"></p-radioButton>
+        <p-radioButton label="False" name="false" value="false" formControlName="userAnswer"></p-radioButton>
+      </div>
+    </div>
+    <div *ngIf="mode === 'grade'">
+      <h2>Grade Your Answer:</h2>
+      <div class="formContent">
+        <h3>Correct Answer is:</h3>
+          <div class="formContent">
+            <p-radioButton label="True" name="correctAnswer" value="true" [(ngModel)]="question.answer" [ngModelOptions]="{ standalone: true }"></p-radioButton>
+            <p-radioButton label="False" name="correctAnswer" value="false" [(ngModel)]="question.answer" [ngModelOptions]="{ standalone: true }"></p-radioButton>
+          </div>
+        <h3>Reason:</h3>
+          <div class="formContent">
+            <textarea rows="6" pTextarea>{{ question.reason }}</textarea>
+          </div>
+        <h3>Your Answer was:</h3>
+          <div class="formContent">
+            <p-radioButton label="True" name="answer" value="true" formControlName="userAnswer"></p-radioButton>
+            <p-radioButton label="False" name="false" value="false" formControlName="userAnswer"></p-radioButton>
+          </div>
+        <h3>Grade:</h3>
+          <div class="formContent">
+            <p-dropdown [options]="correctOptions" formControlName="correct" placeholder="Select One" optionLabel="name"></p-dropdown>
+          </div>
+      </div>
+    </div>
+    <hr class="formContent">
+    <div id="buttonContainer">
+      <button class="submitButton" label="Next" (click)="onSubmitButtonClick()" pButton></button>
+    </div>
+  </form>
+</section>

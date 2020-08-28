@@ -1,0 +1,11 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Create" displayBackButton="true"></app-mobile-header>
+  <app-quiz-form [record]="record" (output)="onNewQuiz($event)"></app-quiz-form>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <app-quiz-form [record]="record" (output)="onNewQuiz($event)"></app-quiz-form>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+section#pc {
+  padding-bottom: 5rem;
+  form {
+    .multipleChoiceOption {
+      margin-bottom: 1rem;
+    }
+    #buttonContainer {
+      text-align: center;
+      button {
+        width: 80%;
+      }
+    }
+    p-radioButton {
+      margin-right: 1rem;
+    }
+  }
+}

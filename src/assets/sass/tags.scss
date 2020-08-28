@@ -1,0 +1,24 @@
+@import './master-variables.scss';
+
+html {
+  min-height: 100%;
+}
+
+body {
+  // background: var(--master-color-primary-gradient);
+}
+
+section#pc {
+  height: 100%;
+  width: 100%;
+  overflow: overlay;
+  color: var(--master-color-secondary);
+}
+
+app-pc-header {
+  margin-bottom: 15rem;
+}
+
+hr {
+  border-top: 1px solid var(--master-color-secondary);
+}

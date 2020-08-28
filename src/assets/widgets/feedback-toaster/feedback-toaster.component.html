@@ -1,0 +1,6 @@
+<div class="itemContainer">
+  <div *ngFor="let notice of notices" [@slideInOut] class="item" [ngClass]="notice.state">
+    <div>{{ notice.message }}</div>
+    <div class="dismissButton" (click)="onDismiss(notice.id)">X</div>
+  </div>
+</div>

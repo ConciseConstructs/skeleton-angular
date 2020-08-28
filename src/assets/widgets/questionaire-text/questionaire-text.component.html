@@ -1,0 +1,109 @@
+<section *ngIf="site.renderFor === 'mobile'" id="mobile">
+  <ion-grid fixed>
+    <form *ngIf="form" [formGroup]="form">
+      <ion-row>
+        <ion-col size="12">
+          <h3>Question:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">"{{ question.question }}"</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="mode === 'grade'">
+        <ion-col size="12">
+          <h3>Correct Answer:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">"{{ question.answer }}"</p>
+          </div>
+          <!-- <div *ngIf="mode === 'exam'" class="formContent">
+            <ion-item>
+              <ion-textarea>{{ question.answer }}</ion-textarea>
+            </ion-item>
+          </div> -->
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="question.reason && mode === 'grade'">
+        <ion-col size="12">
+          <h3>Reason:</h3>
+          <div class="formContent">
+            <p class="questionParagraph">"{{ question.reason }}"</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <h3>Your Answer:</h3>
+          <div *ngIf="mode === 'exam'" class="formContent">
+            <ion-item>
+              <ion-textarea formControlName="answer"></ion-textarea>
+            </ion-item>
+          </div>
+          <div *ngIf="mode === 'grade'" class="formContent">
+            <p class="questionParagraph">"{{ question.userAnswer }}"</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="mode === 'exam'" size="12">
+          <hr>
+          <ion-button expand="full" color="secondary" (click)="onSubmitButtonClick()">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-radio-group *ngIf="mode === 'grade'">
+        <ion-row>
+          <ion-col size="12">
+            <h3>Grade Your Answer:</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <div class="formContent">
+              <p-dropdown [options]="correctOptions" formControlName="correct" placeholder="Select One" optionLabel="name"></p-dropdown>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <ion-row>
+        <ion-col *ngIf="mode === 'grade'" size="12">
+          <hr>
+          <ion-button expand="full" color="secondary" (click)="onSubmitButtonClick()">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</section>
+
+<section *ngIf="site.renderFor === 'pc'" id="pc">
+  <form *ngIf="form" [formGroup]="form">
+    <h3>Question:</h3>
+      <div class="formContent">
+        <textarea rows="6" pTextarea>{{ question.question }}</textarea>
+      </div>
+    <div *ngIf="mode === 'grade'">
+      <h3>Correct Answer:</h3>
+        <div class="formContent">
+          <textarea rows="6" pTextarea>{{ question.answer }}</textarea>
+        </div>
+      <h3>Reason:</h3>
+        <div class="formContent">
+          <textarea rows="6" pTextarea>{{ question.reason }}</textarea>
+        </div>
+    </div>
+    <h3>Your Answer:</h3>
+      <div class="formContent">
+        <textarea formControlName="answer" rows="6" pTextarea></textarea>
+      </div>
+    <div *ngIf="mode === 'grade'">
+      <h3>Grade Your Answer:</h3>
+        <div class="formContent">
+          <p-dropdown [options]="correctOptions" formControlName="correct" placeholder="Select One" optionLabel="name"></p-dropdown>
+        </div>
+    </div>
+    <hr class="formContent">
+    <div id="buttonContainer">
+      <button label="Next" class="submitButton" (click)="onSubmitButtonClick()" pButton></button>
+    </div>
+  </form>
+</section>

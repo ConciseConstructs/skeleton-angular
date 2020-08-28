@@ -1,0 +1,88 @@
+<form *ngIf="form && site.renderFor === 'mobile'" [formGroup]="form" id="mobile">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1>New Text Type Question & Answer</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Question:</h3>
+        <ion-item>
+          <ion-label position="floating">Enter Question</ion-label>
+          <ion-textarea formControlName="question" rows="6"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col size="12">
+      <h3>Answer:</h3>
+      <ion-item>
+        <ion-label position="floating">Enter Answer</ion-label>
+        <ion-textarea formControlName="answer" rows="6"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Reason:</h3>
+        <ion-item>
+          <ion-label position="floating">{{ site.settings.messages.reasonFieldDescription }}</ion-label>
+          <ion-textarea formControlName="reason" rows="6"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="tagsService.records.length > 0" size="12">
+        <h3>Tag:</h3>
+        <ion-item>
+          <ion-label position="floating">Tag / Categorize</ion-label>
+          <ion-select multiple="true" placeholder="Select Categories" (ionChange)="onTagsSelect($event)">
+            <ion-select-option *ngFor="let tag of tagsService.records" [value]="tag.id" [selected]="getSelectedStatus(tag)">{{ tag.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <hr class="formContent">
+    <ion-row>
+      <ion-col size="12">
+        <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+        <ion-button color="tertiary" expand="block" [disabled]="!canSubmit" (click)="onSubmitButtonClick()">{{ submitButtonLabel }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+<section *ngIf="form && site.renderFor === 'pc'" id="pc">
+  <form [formGroup]="form">
+    <div id="grid">
+      <div id="title">
+        <h1>New Text Type Question & Answer</h1>
+      </div>
+      <h3>Question:</h3>
+      <div id="question" class="formContent">
+        <textarea formControlName="question" pTextarea rows="6"></textarea>
+      </div>
+      <h3>Answer:</h3>
+      <div id="answer" class="formContent">
+        <textarea formControlName="answer" pTextarea rows="6"></textarea>
+      </div>
+      <h3>Reason:</h3>
+      <div id="reason" class="formContent">
+        <h6>{{ site.settings.messages.reasonFieldDescription }}</h6>
+        <textarea formControlName="reason" pTextarea rows="6"></textarea>
+      </div>
+      <div *ngIf="tagsService.records.length > 0">
+        <h3>Category:</h3>
+        <div id="tag" class="formContent">
+          <p-multiSelect formControlName="tags" [options]="tagsService.records" optionLabel="name" defaultLabel="Select One"></p-multiSelect>
+        </div>
+      </div>
+      <hr class="formContent">
+      <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+      <div id="actionButton">
+        <button class="submitButton" [label]="submitButtonLabel" [disabled]="!canSubmit" (click)="onSubmitButtonClick()" pButton></button>
+      </div>
+    </div>
+  </form>
+</section>

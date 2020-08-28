@@ -1,0 +1,55 @@
+<section *ngIf="site.renderFor === 'mobile'" id="mobile">
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <h1>Category / Tag Name</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Enter Tag Name...</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Description (Optional)</ion-label>
+            <ion-textarea formControlName="description" rows="6"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <hr class="formContent">
+          <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+          <ion-button color="tertiary" [disabled]="!canSubmit" expand="block" (click)="onSubmitButtonClick()">{{ submitButtonLabel }}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</section>
+
+<section *ngIf="site.renderFor === 'pc'"  id="pc">
+  <form [formGroup]="form">
+    <div id="grid">
+      <h1>Category / Tag Name</h1>
+      <h3>Enter Tag Name:</h3>
+      <div class="formContent">
+        <input type="text" formControlName="name" name="name" pInputText />
+      </div>
+      <h3>Description: (Optional)</h3>
+      <div class="formContent">
+        <textarea formControlName="description" name="description" rows="6" pInputTextarea></textarea>
+      </div>
+      <hr class="formContent">
+      <div *ngIf="feedbackMessage" id="feedbackMessage">{{ feedbackMessage }}</div>
+      <div id="submitButton">
+        <button [label]="submitButtonLabel" [disabled]="!canSubmit" class="submitButton" (click)="onSubmitButtonClick()" pButton></button>
+      </div>
+    </div>
+  </form>
+</section>

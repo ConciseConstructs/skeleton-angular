@@ -1,0 +1,70 @@
+<ion-content *ngIf="site.renderFor === 'mobile'">
+  <div id="outerContainer" class="ion-padding">
+    <div id="innerContainer">
+      <div id="logoContainer">
+        <figure>
+          <img src="../../../../assets/images/iqqa_logo.svg" alt="IQQA Logo">
+          <figcaption style="text-align: center;  line-height: 2rem;"><span style="font-weight: bold;">www.iqqa.link</span><br><span style="font-size: .8rem;">Easy Memorization Through Repetition</span></figcaption>
+        </figure>
+      </div>
+      <div>
+        <ion-segment (ionChange)="segmentChanged($event)">
+          <ion-segment-button id="loginSelector" value="login" checked>
+            <ion-label>Login</ion-label>
+          </ion-segment-button>
+          <ion-segment-button id="signupSelector" value="signup">
+            <ion-label>Signup</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        <h5>{{ modeLabel }}</h5>
+        <form [formGroup]="form">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <hr>
+          <div id="actionButtonContainer">
+            <ion-button color="tertiary" (click)="onProceedButtonClick()">
+              {{ modeLabel }}
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+          </div>
+        </form>
+        <hr>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<section *ngIf="site.renderFor === 'pc'" id="desktop">
+  <div id="grid" [ngClass]="site.deviceClasses">
+    <div id="logo">
+      <figure>
+        <img src="../../../../assets/images/iqqa_logo.svg" alt="IQQA Logo">
+        <figcaption style="text-align: center; line-height: 2rem;"><span style="font-weight: bold;">www.iqqa.link</span><br>Easy Memorization Through Repetition</figcaption>
+      </figure>
+    </div>
+    <div id="dataEntry" class="ui-fluid">
+      <form *ngIf="form" [formGroup]="form">
+        <p-selectButton formControlName="mode" [options]="dataEntryOptions" (onOptionClick)="segmentChanged($event)"></p-selectButton>
+        <h1>{{ modeLabel }}</h1>
+        <div id="fieldsContainer">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input formControlName="email" type="text" pInputText placeholder="Username">
+          </div>
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input formControlName="password" type="password" pPassword placeholder="Password" [feedback]="mode === 'signup'">
+          </div>
+        </div>
+        <hr class="formContent">
+        <button class="submitButton" [label]="modeLabel" (click)="onProceedButtonClick()" pButton></button>
+      </form>
+    </div>
+  </div>
+</section>

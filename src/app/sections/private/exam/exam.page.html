@@ -1,0 +1,19 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Exam" displayBackButton="true"></app-mobile-header>
+  <div *ngIf="examService.questions.length > 0">
+    <h3>Question {{ examService.index + 1 }} of {{ examService.questions.length }}</h3>
+    <app-questionaire-text *ngIf="isTextQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-text>
+    <app-questionaire-boolean *ngIf="isBooleanQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-boolean>
+    <app-questionaire-multiple-choice *ngIf="isMultipleQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-multiple-choice>
+  </div>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header></app-pc-header>
+  <div id="grid" *ngIf="examService.questions.length > 0" [ngClass]="site.screen.deviceClasses">
+    <h3>Question {{ examService.index + 1 }} of {{ examService.questions.length }}</h3>
+    <app-questionaire-text *ngIf="isTextQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-text>
+    <app-questionaire-boolean *ngIf="isBooleanQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-boolean>
+    <app-questionaire-multiple-choice *ngIf="isMultipleQuestion" mode="exam" [question]="question" (output)="onAnswer($event)"></app-questionaire-multiple-choice>
+  </div>
+</section>

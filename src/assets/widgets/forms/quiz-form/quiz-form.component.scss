@@ -1,0 +1,52 @@
+h1#title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  text-align: left;
+}
+
+ion-row {
+  margin-bottom: 2rem;
+}
+
+.container {
+  padding-left: 1rem;
+  margin-bottom: 4rem;
+}
+
+p-radiobutton {
+  margin-left: 1rem;
+  margin-right: 3rem;
+}
+
+#buttonContainer {
+  margin-top: 2rem;
+  text-align: center;
+  button {
+    width: 80%;
+  }
+}
+
+section#pc {
+  padding-bottom: 5rem;
+}
+
+#feedbackMessage {
+  padding: .5rem;
+  margin: .5rem 1rem .5rem 1rem;
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+  border: 1px solid var(--master-color-error-shade);
+  border-radius: 14px;
+  text-align: center;
+}
+
+#scheduledContainer {
+  margin: 1rem;
+}
+
+#scheduleToggleContainer {
+  margin-bottom: 0rem;
+}

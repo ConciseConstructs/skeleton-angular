@@ -1,0 +1,39 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="New Record" displayBackButton="true"></app-mobile-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1>{{ title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button color="secondary" expand="block" (click)="onNewButtonClick('question')">New Question</ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="secondary" expand="block" (click)="onNewButtonClick('category')">New Category</ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="secondary" expand="block" (click)="onNewButtonClick('quiz')">New Quiz</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid">
+    <div id="container">
+      <h1>{{ title }}</h1>
+      <div>
+        <button pButton type="button" label="New Question" (click)="onNewButtonClick('question')"></button>
+      </div>
+      <div>
+        <button pButton type="button" label="New Category" (click)="onNewButtonClick('category')"></button>
+      </div>
+      <div>
+        <button pButton type="button" label="New Quiz" (click)="onNewButtonClick('quiz')"></button>
+      </div>
+    </div>
+  </div>
+</section>

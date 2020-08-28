@@ -1,0 +1,37 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Results" displayBackButton="true"></app-mobile-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1>Results</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Questions: {{ examService.questions.length }}</h3>
+        <h3>Correct: {{ percentCorrect }} %</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="full" color="secondary" (click)="onNavigateButtonClick()">Back To Dashboard</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'"id="pc">
+  <app-pc-header></app-pc-header>
+  <div id="grid">
+    <div id="title">
+      <h1>Results</h1>
+    </div>
+    <div id="stats">
+      <h3>Questions: {{ examService.questions.length }}</h3>
+      <h3>Correct: {{ percentCorrect }} %</h3>
+    </div>
+    <div id="button">
+      <button (click)="onNavigateButtonClick()" label="Back To Dashboard" pButton></button>
+    </div>
+  </div>
+</section>

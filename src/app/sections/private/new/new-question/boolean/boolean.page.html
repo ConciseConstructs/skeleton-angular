@@ -1,0 +1,11 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Create" displayBackButton="true"></app-mobile-header>
+  <app-question-boolean-form [record]="record" (output)="onCreateButtonClick($event)"></app-question-boolean-form>
+</ion-content>
+
+<section *ngIf="site.renderFor === 'pc'" fadeInView id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <app-question-boolean-form [record]="record" (output)="onCreateButtonClick($event)"></app-question-boolean-form>
+  </div>
+</section>

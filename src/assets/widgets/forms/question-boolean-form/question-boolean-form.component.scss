@@ -1,0 +1,29 @@
+h1 {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+p-radioButton {
+  margin: 0rem 3rem 0rem 1rem;
+}
+
+#buttonContainer {
+  text-align: center;
+  button {
+    width: 80%;
+  } 
+}
+
+section#pc {
+  padding-bottom: 5rem;
+}
+
+#feedbackMessage {
+  padding: .5rem;
+  margin: .5rem 1rem .5rem 1rem;
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+  border: 1px solid var(--master-color-error-shade);
+  border-radius: 14px;
+  text-align: center;
+}
