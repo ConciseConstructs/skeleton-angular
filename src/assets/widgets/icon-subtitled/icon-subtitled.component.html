@@ -1,0 +1,6 @@
+<div class="iconContainer" [ngClass]="site.renderFor" (click)="onClick(icon)">
+  <h4 class="iconSubTitle">{{ icon.subtitle }}</h4>
+  <div class="iconImageContainer">
+    <img [src]="icon.imageUrl" [alt]="icon.alt">
+  </div>
+</div>

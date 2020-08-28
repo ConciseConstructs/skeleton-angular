@@ -1,0 +1,30 @@
+<div>
+  <app-captcha-google *ngIf="!hasVerified"></app-captcha-google>
+  <div id="grid" [ngClass]="site.renderFor">
+    <form id="form" *ngIf="hasVerified">
+      <legend>Contact Us Form</legend>
+      <label for="contactInfo">Your Contact Info: (Email or Phone)
+        <input name="contactInfo" class="formInput" type="text" id="contactInfo" [(ngModel)]="contactInfo" pInputText>
+      </label>
+      <label for="message">Message:
+        <textarea name="message" class="formInput" id="message" cols="30" rows="10" [(ngModel)]="message" pInputTextarea></textarea>
+      </label>
+      <hr>
+      <section id="buttons">
+        <button label="Submit" (click)="onFormSubmitButton()" pButton></button>
+      </section>
+    </form>
+    <div id="contactInfo" *ngIf="hasVerified">
+      <div *ngIf="contactData">
+        <h2>{{ contactData.businessName }}</h2>
+        <h4 style="text-transform: lowercase;">{{ contactData.webAddress }}</h4>
+        <h6>Email: {{ contactData.email }}</h6>
+        <h6>Phone: {{ contactData.phone }}</h6>
+        <h4>Address:</h4>
+        <h6>{{ contactData.physicalAddress1 }}</h6>
+        <h6>{{ contactData.physicalAddress2 }}</h6>
+        <h6>{{ contactData.physicalAddressCity }}, {{ contactData.physicalAddressState }} {{ contactData.physicalAddressPostalCode }}</h6>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc title="Server-Side" *ngIf="site.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
+    <app-header-mobile title="Server-Side" *ngIf="site.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
+  </section>
+  <section id="body">
+    <h1>Server-Side</h1>
+    <h3>Serverless</h3>
+    <p>The Serverless framework is a tool that allows rapid development of cloud computing resources to support and run cloud applications such as websites and applications.  These resources are not tied to any specific piece of hardware that could fail, hence the name "serverless".  Most resources are "On-Demand" so you do not have to pay to keep these resources available 24 hours a day.</p>
+    <h3>Server Instances</h3>
+    <p>If desired a dedicated server can be provided and run 24 hours a day.  Depending on the project requirements a dedicated server may be needed as they are more flexible and customizable.</p>
+    <h6>LAMP Stack</h6>
+    <p>LAMP is an acronym for a grouping of software used to setup a webserver.  The initials stand for Linux (server's operating system), Apache (web traffic request software), MySQL (database) and PHP (server's logic and functions).</p>
+  </section>
+</div>

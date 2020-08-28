@@ -1,0 +1,28 @@
+@import '../../sass/master-variables.scss';
+
+.itemContainer {
+  width: 98%;
+}
+
+.item {
+  display: flex;
+  margin: .2rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}
+.item.success {
+  background: var(--master-color-success-gradient);
+  color: var(--master-color-success-contrast);
+}
+.item.warn {
+  background: var(--master-color-warn-gradient);
+  color: var(--master-color-warn-contrast);
+}
+.item.error {
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+}
+.dismissButton {
+  margin-left: .15rem;
+  cursor: pointer;
+}

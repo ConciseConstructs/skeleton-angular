@@ -1,0 +1,25 @@
+<form [ngClass]="site.renderFor">
+  <h6>Payments processed by <a href="https://www.braintreepayments.com/features/data-security" target="_blank">Braintree Payment Solutions</a></h6>
+  <!--, a PayPal company.  -->
+  <div class="formInput">
+    <label for="type">Type:
+      <p-dropdown name="type" class="formInput" [options]="transactionTypes"></p-dropdown>
+    </label>
+  </div>
+  <div class="formInput">
+    <label for="customerId">Customer Id:
+      <input type="text" name="customerId" pInputText>
+    </label>
+  </div>
+  <div id="dropin-container"></div>
+  <div class="formInput text-center">
+    <label for="amount">Amount USD $:
+      <label for="currency-us"></label>
+      <input [(ngModel)]="amount" type="number" name="amount" id="amount" value="5.00" min="2.00" step=".01" mode="currency" currency="USD" locale="en-US" pInputNumber>
+    </label>
+    <hr>
+    <div id="buttonContainer">
+      <button label="Deposit" [disabled]="isSaving" (click)="onDepositBtnClick()" pButton></button>
+    </div>
+  </div>
+</form>

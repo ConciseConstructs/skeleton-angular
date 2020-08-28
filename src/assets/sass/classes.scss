@@ -1,0 +1,78 @@
+@import './master-variables.scss';
+
+.wire {
+  border: 1px dashed red;
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+.page {
+  overflow: auto;
+  height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.marginx2 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.marginx3 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.paddingx2 {
+  padding: 2rem;
+}
+
+.paddingx3 {
+  padding: 3rem;
+}
+
+table tr.odd {
+  background-color: var(--master-color-tertiary);
+}
+
+table tr.even {
+  background-color: var(--master-color-tertiary-tint);
+}
+
+table tr:hover {
+  background-color: var(--master-color-accent-shade);
+  td {
+    color: var(--master-color-accent-contrast);
+  }
+}
+
+td {
+  color: var(--master-color-dark)
+}
+
+td .ui-button {
+  background: var(--master-color-tertiary-gradient);
+  color: var(--master-color-tertiary-contrast);
+  border-color: var(--master-color-tertiary-shade);
+}
+
+td .ui-button:enabled:hover {
+  background: var(--master-color-tertiary-tint-gradient);
+  color: var(--master-color-tertiary-contrast);
+  border-color: var(--master-color-tertiary-shade);
+}
+
+.textErrorColor {
+  background-color: var(--master-color-error);
+  color: var(--master-color-error-contrast);
+}

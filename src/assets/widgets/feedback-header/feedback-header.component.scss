@@ -1,0 +1,26 @@
+@import '../../sass/master-variables.scss';
+
+div.success {
+  background: var(--master-color-success-gradient);
+  color: var(--master-color-success-contrast);
+}
+div.warn {
+  background: var(--master-color-warn-gradient);
+  color: var(--master-color-warn-contrast);
+}
+div.error {
+  background: var(--master-color-error-gradient);
+  color: var(--master-color-error-contrast);
+}
+
+h1 {
+  margin-top: 0px;
+}
+
+div {
+  height: 0px;
+  padding-left: .5rem;
+  transition: height 0.4s linear;
+}
+
+

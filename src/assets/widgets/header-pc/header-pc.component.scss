@@ -1,0 +1,31 @@
+@import '../../sass/master-variables.scss';
+
+#container {
+  height: 5rem;
+  background-color: rgba(var(--master-color-primary-shade-rgba));
+  border-bottom: 1px solid #475a71;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  #backOptionContainer {
+    margin-left: 2rem;
+    a {
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--master-color-primary-contrast);
+    }
+  }
+  h1 {
+    color: var(--master-color-primary-contrast);
+    font-size: 2.4rem;
+    margin-top: 43px;
+  }
+}
+
+
+
+
+.verticalAlign {
+  display: flex; flex-direction: column; justify-content: center;
+}

@@ -1,0 +1,10 @@
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc title="Payment" *ngIf="site.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
+    <app-header-mobile title="Payment" *ngIf="site.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
+  </section>
+  <section id="body">
+    <app-form-braintree-payment></app-form-braintree-payment>
+  </section>
+  <app-footer></app-footer>
+</div>

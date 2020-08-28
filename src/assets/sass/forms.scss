@@ -1,0 +1,15 @@
+form {
+  padding: 2rem;
+  legend {
+    font-size: clamp(.5rem, 12vw, 1.5rem);
+    padding: 0rem 0rem 2rem 0rem;
+  }
+  #buttons {
+    text-align: center;
+  }
+}
+
+.formInput {
+  margin: .5rem 1rem 2rem 1rem;
+  width: 97%;
+}

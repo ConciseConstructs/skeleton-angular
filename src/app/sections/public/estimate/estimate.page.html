@@ -1,0 +1,9 @@
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc *ngIf="site.renderFor === 'pc'" title="Estimate" displayBackButton="true"></app-header-pc>
+    <app-header-mobile *ngIf="site.renderFor === 'mobile'" title="Estimate" displayBackButton="true"></app-header-mobile>
+  </section>
+  <section id="body">
+    <app-form-estimate (output)="onFormEstimateSubmit($event)"></app-form-estimate>
+  </section>
+</div>

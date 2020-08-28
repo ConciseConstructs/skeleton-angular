@@ -1,0 +1,16 @@
+<div id="grid" page="class" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc title="Databases" *ngIf="site.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
+    <app-header-mobile title="Databases" *ngIf="site.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
+  </section>
+  <section id="body">
+    <h1>Databases</h1>
+    <p>There are several databases available for deployment.  Many implement different features and therefore perform better under different circumstances.  Some databases are cloud platform specific, for instance DynamoDB is a proprietary database by Amazon and is only available on the AWS cloud platform.  If you are unfamiliar with these concepts we can examine the project requirements and handle the creation and implementation of correct databases for you.</p>
+    <h3>MySQL</h3>
+    <p>MySQL (Structured Query Language) is a popular relational database used in many websites.  For many applications a SQL type database will work well.  It is flexible in retrieving many diverse queries for data but is not as flexible if the type of data needed to be stored has to change.  Once a SQL database schema (outline & standards) is created it is not simple to change and will most likely require a database "migration" process from the old schema to the new schema.</p>
+    <h3>MongoDB</h3>
+    <p>MongoDB is a NoSQL database (Not Only Structured Query Language).  This means that it still implements a query language but is not as rigid in way data must be stored and is more flexible to changes in the future.  Because of it's flexibility, the trade off is that data can be wrote to the database which is not uniform with previous records.  This can cause unexpected extra or missing data which can cause applications to crash.  Therefore it may potentially cause extra development time to write code handling these possible scenarios.  But if the type of data needed to be stored changes, this is easily accomplished.</p>
+    <h3>DynamoDB</h3>
+    <p>DynamoDB is a proprietary database by Amazon Web Services and only available on their cloud platform.  It is a "Key/Value" store, meaning that data is mainly fetched by the piece of data's specific id number.  There is no inherent data relationships, all related data has to be pieced together by the application after it has been fetched.  This may initially sound like big negatives. However, if the types of data needed to be stored is well known in advance (just like you would need in an SQL type database) the database can be setup pretty optimally and can easily get the needed data.  The benefit to this database is it is extremely scalable to huge amounts of data while remaining extremely fast.  It is also "serverless" by design, meaning there are no uptime fees to have a server running 24 hours a day to serve the data.</p>
+  </section>
+</div>

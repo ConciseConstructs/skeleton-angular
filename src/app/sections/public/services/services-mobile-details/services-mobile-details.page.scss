@@ -1,0 +1,33 @@
+@import '../../../../../assets/sass/master-variables.scss';
+
+#grid.pc {
+  h1 {
+    margin-bottom: 3rem;
+  }
+  h3 {
+    margin-left: 1rem;
+  }
+  p {
+    margin-left: 2rem;
+  }
+  li {
+    color: var(--master-color-light);
+    margin-left: 2rem;
+    margin-bottom: .5rem;
+  }
+
+  #detailsContainer {
+    margin-bottom: 3rem;
+  }
+  #featuresContainer {
+    margin-bottom: 3rem;
+  }
+}
+
+
+
+
+#estimateRequestContainer {
+  text-align: center;
+  margin-bottom: 6rem;
+}

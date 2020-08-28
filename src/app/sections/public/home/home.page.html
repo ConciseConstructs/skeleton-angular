@@ -1,0 +1,20 @@
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="menu">
+    <div *ngFor="let option of navOptions" class="menuItem clickable" (click)="onMenuClick(option.value)">{{ option.label }}</div>
+  </section>
+  <section id="logo" [ngClass]="site.renderFor">
+    <video id="logoVideo" width="360" src="../../../../assets/video/logo_tight.webm" muted autoplay loop playsinline></video>
+    <div id="logoTitles" [ngClass]="site.renderFor">
+      <h4>Concise Constructs</h4>
+      <h5>Cloud Applications and Site Solutions</h5>
+    </div>
+  </section>
+  <section id="options">
+    <div id="optionsContainer">
+      <h4 id="goToTitle">Go To</h4>
+      <div class="menuItem clickable" (click)="onMenuClick()">{{ sliderOptionLabel() }}</div>
+    </div>
+    <p-slider [(ngModel)]="sliderValue" [min]="0" [max]="navOptions.length -1" [step]="1"></p-slider>
+    <h6>Slide for options</h6>
+  </section>
+</div>

@@ -1,0 +1,13 @@
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc title="Client-Side" *ngIf="site.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
+    <app-header-mobile title="Client-Side" *ngIf="site.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
+  </section>
+  <section id="body">
+    <h1>Front-End Frameworks & Libraries</h1>
+    <h5>Angular</h5>
+    <p>Concise Constructs uses <a href="https://www.angular.io" target="_blank">Angular</a> which is a Google backed front-end (Web Browser) framework providing tools to develop dynamic and responsive websites.  These tools allow rapid development of websites and progressive web apps.</p>
+    <h5>React</h5>
+    <p>Concise Constructs uses <a href="https://www.reactjs.org" target="_blank">React</a> which is a Facebook backed front-end (Web Browser) library providing tools to develop dynamic and responsive websites.</p>
+  </section>
+</div>

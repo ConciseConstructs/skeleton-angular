@@ -1,0 +1,71 @@
+.formInput {
+  margin-bottom: 0px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-rows: minmax(10px, auto);
+  grid-gap: 1rem;
+  grid-template-areas:
+    "projectName"
+    "projectContactName"
+    "projectContactInfo"
+    "projectDescription"
+    "projectDetailsContainer"
+    "projectTimeline"
+    "buttons"
+  ;
+  #projectName {
+    grid-area: projectName;
+  }
+
+  #projectDescription {
+    grid-area: projectDescription;
+  }
+
+  #projectDetailsContainer {
+    grid-area: projectDetailsContainer;
+  }
+
+  #projectTimeline {
+    grid-area: projectTimeline;
+    legend {
+      position: relative;
+      top: 1rem;
+      font-size: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    #fieldset {
+      #projectTimelineValue {
+        margin-top: -1px;
+        input {
+          width: 4rem;
+        }
+      }
+    }
+  }
+
+
+  #verification {
+    grid-area: verification;
+  }
+
+  #buttons {
+    grid-area: buttons;
+  }
+
+}
+
+
+
+
+#errorMessage {
+  margin: .5rem;
+  padding: .5rem;
+  border-radius: 2px;
+}
+
+
+

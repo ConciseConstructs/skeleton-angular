@@ -1,0 +1,66 @@
+<section *ngIf="site.renderFor === 'mobile'">
+  <form *ngIf="form" [formGroup]="form">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12"><h2>Rate:</h2></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Every (number):</ion-label>
+            <ion-input formControlName="rate" type="number" placeholder="Every"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Unit</ion-label>
+            <ion-select formControlName="unit" multiple="false" placeholder="Select Unit">
+              <ion-select-option *ngFor="let option of unitOptions" [value]="option.value">{{ option.name }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Time</ion-label>
+            <ion-datetime formControlName="time" display-format="HH:mm" (ionBlur)="fixTimePickerUiQuirk()"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <p>Rate: Every {{ uiRate }} {{ uiUnit }} @ {{ uiTime }}</p>
+          <p>First Quiz: {{ uiFirstQuiz }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</section>
+
+<section *ngIf="site.renderFor === 'pc'" id="pc">
+  <form [formGroup]="form">
+    <h2>Rate:</h2>
+    <div id="grid" [ngClass]="site.screen.deviceClasses">
+      <div id="rateContainer" class="formContent">
+        <h3>Every (number):</h3>
+        <p-spinner formControlName="rate" min="1"></p-spinner>
+      </div>
+      <div id="unitContainer" class="formContent">
+        <h3>Unit:</h3>
+        <p-dropdown formControlName="unit" [options]="unitOptions" placeholder="Select One" optionLabel="name"></p-dropdown>
+      </div>
+      <div id="timeContainer" class="formContent">
+        <h4>At</h4>
+        <p-calendar formControlName="time" [timeOnly]="true"></p-calendar>
+        <h6>Military Time: (13:00 = 1pm)</h6>
+      </div>
+      <div id="summaryContainer">
+        <p>Rate: Every {{ uiRate }} {{ uiUnit }} @ {{ uiTime }}</p>
+        <p>First Quiz: {{ uiFirstQuiz }}</p>
+      </div>
+    </div>
+  </form>
+</section>

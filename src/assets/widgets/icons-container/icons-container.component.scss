@@ -1,0 +1,22 @@
+#iconsContainer {
+  margin: 0rem 2rem 0rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+
+#iconsContainer.mobile {
+  margin-top: 23rem;
+  padding-bottom: 5rem;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+#iconsContainer.pc {
+  flex-direction: row;
+  // padding-top: 10rem;
+  gap: 5rem;
+}

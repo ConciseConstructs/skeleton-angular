@@ -1,0 +1,131 @@
+#grid {
+  display: grid;
+  height: 100%;
+}
+#grid.pc {
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "menu logo"
+  ;
+}
+#grid.mobile {
+  grid-template-columns: 100%;
+  grid-template-rows: 71% 29%;
+  grid-template-areas:
+    "logo"
+    "options"
+  ;
+}
+
+
+
+
+#menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem;
+  padding-left: 2rem;
+}
+
+.mobile #menu {
+  display: none;
+}
+
+
+
+
+section#logo {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+#logo.mobile {
+  padding-top: 9rem;
+  padding-bottom: 2.8rem;
+}
+
+
+
+section#options {
+  grid-area: options;
+  padding: 3rem;
+  padding-top: 0rem;
+  #optionsContainer {
+    max-height: 200px;
+    margin-bottom: 2rem;
+  }
+}
+#grid.pc section#options {
+  display: none;
+}
+
+
+
+
+
+.menuItem {
+  margin: 1rem;
+  padding: 1rem;
+  border-top: 2px solid var(--master-color-primary-contrast);
+  border-bottom: 2px solid var(--master-color-primary-contrast);
+  background-color: rgba(var(--master-color-primary-tint-rgba));
+  color: var(--master-color-primary-contrast);
+  font-size: 1.3rem;
+}
+.menuItem:hover {
+  background-color: var(--master-color-primary);
+  border-top: 2px solid var(--master-color-secondary);
+  border-bottom: 2px solid var(--master-color-secondary);
+}
+#grid.mobile .menuItem {
+  margin: 0rem;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+#logoTitles {
+  text-align: center;
+  h4 {
+    padding-left: 4rem;
+    font-size: 3.5rem;
+    color: var(--master-color-primary-contrast);
+    font-family: var(--master-font-headings);
+  }
+  h5 {
+    padding-left: 4rem;
+    font-size: 1.7rem;
+    color: var(--master-color-primary-contrast);
+    font-family: var(--master-font-body);
+  }
+}
+#logoTitles.mobile h4  {
+  padding-left: 0;
+  font-size: 2.5rem;
+}
+#logoTitles.mobile h5 {
+  padding-left: 0;
+  font-size: 1.2rem;
+}
+
+
+
+
+h6 {
+  text-align: center;
+}
+
+
+
+
+#goToTitle {
+  text-align: center;
+}

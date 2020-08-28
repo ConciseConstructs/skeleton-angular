@@ -1,0 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="displayTitle">{{ title }}</ion-title>
+    <ion-buttons *ngIf="displayBackButton" slot="start">
+      <ion-back-button color="secondary" defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,41 @@
+@import '../../../../assets/sass/master-variables.scss';
+
+#grid.page {
+  #body {
+    display: grid;
+    #heading {
+      grid-area: heading;
+      padding: .5rem;
+      text-align: center;
+    }
+    #sidebar {
+      grid-area: sidebar;
+    }
+    #content {
+      grid-area: content;
+      padding: 1rem;
+      color: var(--master-color-light);
+    }
+  }
+}
+
+#grid.pc {
+  #body {
+    grid-template-columns: 190px 80%;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas:
+      "nothing heading"
+      "sidebar content"
+    ;
+  }
+}
+#grid.mobile {
+  #body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr;
+    grid-template-areas:
+      "heading"
+      "content"
+    ;
+  }
+}

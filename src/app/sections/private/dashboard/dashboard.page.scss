@@ -1,0 +1,72 @@
+#pc {
+  height: 100%;
+  width: 100%;
+  #grid {
+    display: grid;
+    height: 80%;
+    margin: 15rem 6rem 6rem 3rem;
+    #quizSelection { 
+      grid-area: quizSelection;
+      text-align: center;
+      padding-top: 2rem;
+    }
+    #buttonOptions {
+      grid-area: buttonOptions;
+      text-align: center;
+      h3 {
+        padding-left: 1.5rem;
+      }
+    }
+  }
+  .medium, .large, .xlarge {
+    grid-template-areas:
+      "quizSelection buttonOptions"
+    ;
+    grid-template-columns: 1fr 1fr;
+    #buttonOptions {
+      padding-top: 2.5rem;
+    }
+  }
+  #grid.medium, #grid.xlarge, #grid.large {
+    width: 60%;
+    margin: 15rem 20% 6rem 20%;
+  }
+  .small {
+    grid-template-areas:
+      "quizSelection"
+      "buttonOptions"
+    ;
+  }
+}
+
+#mobile {
+  #startButtonContainer {
+    text-align: center;
+  }
+}
+
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+button#browse, button#settings {
+  width: 100%;
+}
+
+.optionButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pc hr {
+  text-align: center;
+  width: 80%;
+  margin: 1rem 0rem 1rem 3rem;
+}

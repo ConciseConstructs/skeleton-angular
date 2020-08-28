@@ -1,0 +1,115 @@
+:root {
+  --master-dark-contrast: #000000;
+  --master-dark-contrast-rbg: 0,0,0;
+  --master-light-contrast: #FFFFFF;
+  --master-light-contrast-rgb: 255,255,255;
+
+  --master-color-primary: #274259;
+  --master-color-primary-rgb: 39, 66, 89;
+  --master-color-primary-rgba: 39, 66, 89, .5;
+  --master-color-primary-gradient: linear-gradient(to bottom, var(--master-color-primary) 0%, #080d11 100%);
+  --master-color-primary-tint: #52687A;
+  --master-color-primary-tint-rgba: 82, 104, 122, .5;
+  --master-color-primary-tint-gradient: linear-gradient(to bottom, var(--master-color-primary-tint) 0%, #27313a 100%);
+  --master-color-primary-shade: #1F3547;
+  --master-color-primary-shade-rgba: 31, 53, 71, .5;
+  --master-color-primary-shade-gradient: linear-gradient(to bottom, var(--master-color-primary-shade) 0%, #0e1820 100%);
+  --master-color-primary-contrast: var(--master-light-contrast);
+  --master-color-primary-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-secondary: #F8F18E;
+  --master-color-secondary-rgb: 57, 79, 122;
+  --master-color-secondary-rgba: 57, 79, 122, .5;
+  --master-color-secondary-gradient: linear-gradient(to bottom, var(--master-color-secondary) 50%, #8f8a4d 100%);
+  --master-color-secondary-tint: #FFF780;
+  --master-color-secondary-tint-rgba: 255, 247, 128, .5;
+  --master-color-secondary-tint-gradient: linear-gradient(to bottom, var(--master-color-secondary-tint) 0%, #aaa456 100%);
+  --master-color-secondary-shade: #B3AA36;
+  --master-color-secondary-shade-rgba: 179, 170, 54, .5;
+  --master-color-secondary-shade-gradient: linear-gradient(to bottom, var(--master-color-secondary-shade) 0%, #857f2a 100%);
+  --master-color-secondary-contrast: var(--master-dark-contrast);
+  --master-color-secondary-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-tertiary: #56738C;
+  --master-color-tertiary-rgb: 86, 115, 140;
+  --master-color-tertiary-rgba: 86, 115, 140, .5;
+  --master-color-tertiary-gradient: linear-gradient(to bottom, var(--master-color-tertiary) 0%, #263450 100%);
+  --master-color-tertiary-tint: #9ABBD9;
+  --master-color-tertiary-tint-rgba: 154, 187, 217, .5;
+  --master-color-tertiary-tint-gradient: linear-gradient(to bottom, var(--master-color-tertiary-tint) 0%, #23304b 100%);
+  --master-color-tertiary-shade-rgba: 33, 49, 64, .5;
+  --master-color-tertiary-shade-gradient: linear-gradient(to bottom, var(--master-color-tertiary-shade) 0%, #040f25 100%);
+  --master-color-tertiary-contrast: var(--master-light-contrast);
+  --master-color-tertiary-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-accent: #593053;
+  --master-color-accent-rgb: 89, 48, 83;
+  --master-color-accent-rgba: 89, 48, 83, .5;
+  --master-color-accent-gradient: linear-gradient(to bottom, var(--master-color-accent) 0%, #263450 100%);
+  --master-color-accent-tint: #A65A9A;
+  --master-color-accent-tint-rgba: 166, 90, 154, .5;
+  --master-color-accent-tint-gradient: linear-gradient(to bottom, var(--master-color-accent-tint) 0%, #23304b 100%);
+  --master-color-accent-shade: #40223B;
+  --master-color-accent-shade-rgba: 64, 34, 59, .5;
+  --master-color-accent-shade-gradient: linear-gradient(to bottom, var(--master-color-accent-shade) 0%, #040f25 100%);
+  --master-color-accent-contrast: var(--master-light-contrast);
+  --master-color-accent-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-success: #436D49;
+  --master-color-success-rgb: 67,109,73;
+  --master-color-success-gradient: linear-gradient(to bottom, #436D49 0%, #223725 100%);
+  --master-color-success-tint: #5A8D61;
+  --master-color-success-tint-gradient: linear-gradient(to bottom, #5A8D61 0%, #2D4731 100%);
+  --master-color-success-shade: #26462A;
+  --master-color-success-shade-gradient: linear-gradient(to bottom, #26462A 0%, #080E08 100%);
+  --master-color-success-contrast: var(--master-light-contrast);
+  --master-color-success-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-warning: #F37444;
+  --master-color-warning-rgb: 243,116,68;
+  --master-color-warning-gradient: linear-gradient(to bottom, #F37444 0%, #7A3A22 100%);
+  --master-color-warning-tint:#F99771;
+  --master-color-warning-tint-gradient: linear-gradient(to bottom, #F99771 0%, #7D4C39 100%);
+  --master-color-warning-shade: #D65929;
+  --master-color-warning-shade-gradient: linear-gradient(to bottom, #D65929 0%, #6B2D15 100%);
+  --master-color-warning-contrast: var(--master-dark-contrast);
+  --master-color-warning-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-error: #B91F1F;
+  --master-color-error-rgb: 185,31,31;
+  --master-color-error-gradient: linear-gradient(to bottom, #B91F1F 0%, #5D1010 100%);
+  --master-color-error-tint: #D64E4E;
+  --master-color-error-tint-gradient: linear-gradient(to bottom, #D64E4E 0%, #6B2727 100%);
+  --master-color-error-shade: #981212;
+  --master-color-error-shade-gradient: linear-gradient(to bottom, #981212 0%, #4C0909 100%);
+  --master-color-error-contrast: #CFC252;
+  --master-color-error-contrast-rgb: 207,194,82;
+
+  --master-color-dark: #101010;
+  --master-color-dark-rgb: 34,36,40;
+  --master-color-dark-gradient: linear-gradient(to bottom, #101010 0%, #070707 100%);
+  --master-color-dark-tint: #383A3E;
+  --master-color-dark-shade: #1E2023;
+  --master-color-dark-contrast: var(--master-light-contrast);
+  --master-color-dark-contrast-rgb: var(--master-light-contrast-rgb);
+
+  --master-color-medium: #989AA2;
+  --master-color-medium-rgb: 152,154,162;
+  --master-color-medium-gradient: linear-gradient(to bottom, #989AA2 0%, #4C4D51 100%);
+  --master-color-medium-tint: #a2a4ab;
+  --master-color-medium-shade: #86888f;
+  --master-color-medium-contrast: var(--master-dark-contrast);
+  --master-color-medium-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-color-light: #F4F5F8;
+  --master-color-light-rgb: 244,245,248;
+  --master-color-light-gradient: linear-gradient(to bottom, #F4F5F8 0%, #7A7B7C 100%);
+  --master-color-light-tint: #f5f6f9;
+  --master-color-light-shade: #d7d8da;
+  --master-color-light-contrast: var(--master-dark-contrast);
+  --master-color-light-contrast-rgb: var(--master-dark-contrast-rbg);
+
+  --master-font-headings: 'Play', sans-serif;
+  --master-font-body: 'Maven Pro', sans-serif;
+
+}

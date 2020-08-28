@@ -1,0 +1,16 @@
+@import '../../../../assets/sass/master-variables.scss';
+
+#grid.pc {
+  #body {
+    padding: 2rem;
+  }
+}
+
+li {
+  color: var(--master-color-light);
+  margin-bottom: 2rem;
+  span.fieldName {
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+}

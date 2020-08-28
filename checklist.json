@@ -1,0 +1,9 @@
+{
+    "version": false,
+    "projectName": {
+        "packageJSON": false,
+        "environmentDEV": false,
+        "environmentPROD": false
+    },
+    "favIcon": false
+}

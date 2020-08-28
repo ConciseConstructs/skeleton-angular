@@ -1,0 +1,10 @@
+<section>
+  <div>
+    <h5>Device: {{ device.id }}</h5><button label="Remove" (click)="onRemoveButtonClick()" pButton></button>
+  </div>
+  <ul>
+    <li>Manufacturer: {{ device.manufacturer }}</li>
+    <li>Model: {{ device.model }}</li>
+    <li>Device Unique Id: {{ device.uuid }}</li>
+  </ul>
+</section>

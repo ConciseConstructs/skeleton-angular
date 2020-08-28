@@ -1,0 +1,13 @@
+#body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile #body {
+  height: 72%;
+}
+
+.pc #body {
+  height: 100%;
+}

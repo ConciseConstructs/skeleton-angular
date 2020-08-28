@@ -1,0 +1,37 @@
+.iconContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: .5rem 1rem .5rem 1rem;
+  cursor: pointer;
+}
+.iconContainer.mobile {
+  height: 30vw;
+  width: 35vw;
+}
+
+.iconContainer.pc {
+  height: 13vw;
+  width: 15vw;
+}
+
+.iconImageContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.iconSubTitle {
+  padding: .3rem 0rem .3rem 0rem;
+  border-top: 1px solid var(--master-color-secondary);
+  border-bottom: 1px solid var(--master-color-secondary);
+  border-left: 0px;
+  border-right: 0px;
+  text-align: center;
+  background: var(--master-color-primary-shade-gradient);
+  color: var(--master-color-primary-contrast);
+  margin: 0px;
+  font-size: clamp(.5rem, 2vw, 1.5rem);
+}
+
+img {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+@import '../../sass/master-variables.scss';
+
+#footerContainer {
+  position: fixed;
+  width: 100%;
+  margin-bottom: 2rem;
+  bottom: 0px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  color: var(--master-color-primary-contrast);
+  line-height: 3rem;
+  #title {
+    font-family: var(--master-font-headings);
+    font-size: clamp(1rem, 10vw, 3rem);
+  }
+  #subtitle {
+    font-family: var(--master-font-body);
+    font-size: clamp(.2rem, 8vw, 2.3rem);
+  }
+}

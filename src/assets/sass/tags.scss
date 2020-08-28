@@ -1,0 +1,102 @@
+@import './master-variables.scss';
+
+html {
+  min-height: 100%;
+  line-height: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--master-color-secondary);
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 6.5vw, 2.5rem);
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: clamp(1.80rem, 5vw, 2rem);
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-left: .75rem;
+  margin-right: .75rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+p {
+  color: var(--master-color-primary-contrast);
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+p-checkbox, p-radiobutton {
+  margin-left: 1rem;
+  label {
+    color: var(--master-color-primary-contrast);
+  }
+}
+
+hr {
+  border-top: 1px solid var(--master-color-secondary-shade);
+}
+
+legend {
+  text-transform: capitalize;
+  font-weight: bold;
+  padding-left: .8rem;
+  padding-right: .8rem;
+  color: var(--master-color-secondary)
+}
+
+label {
+  font-weight: bold;
+  color: var(--master-color-secondary);
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--master-color-secondary-contrast);
+  th {
+    padding: .5rem;
+    background-color: var(--master-color-dark);
+  }
+  tr {
+    td {
+      padding: .5rem;
+      border: 1px solid var(--master-color-dark);
+    }
+  }
+}
+
+textarea {
+  font-weight: normal;
+}
+
+li {
+  color: var(--master-color-light);
+}

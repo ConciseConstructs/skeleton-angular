@@ -1,0 +1,16 @@
+form.pc {
+  width: 50%;
+  margin: auto;
+  .formInput {
+    margin-bottom: 2rem;
+  }
+}
+
+h6 {
+  font-size: clamp(.8rem, 2vw, 1rem);
+  margin-bottom: 2rem;
+}
+
+#buttonContainer {
+  text-align: center;
+}
