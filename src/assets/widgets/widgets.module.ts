@@ -25,9 +25,6 @@ import { ConfirmationService } from 'primeng/api'
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { TabViewModule } from 'primeng/tabview';
 import { SlideMenuModule } from 'primeng/slidemenu'
-import { FeedbackHeaderComponent } from './feedback-header/feedback-header.component'
-import { FeedbackToasterComponent } from './feedback-toaster/feedback-toaster.component'
-import { DeviceComponent } from './device/device.component'
 import { OverlayLoadingComponent } from './overlay-loading/overlay-loading.component'
 import { BackgroundVideoComponent } from './background-video/background-video.component'
 import { SliderModule } from 'primeng/slider';
@@ -35,30 +32,32 @@ import { IconSubtitledComponent } from './icon-subtitled/icon-subtitled.componen
 import { IconsContainerComponent } from './icons-container/icons-container.component'
 import { FooterComponent } from './footer/footer.component'
 import { FormContactComponent } from './forms/form-contact/form-contact.component'
-import { FormEstimateComponent } from './forms/form-estimate/form-estimate.component'
 import { CaptchaGoogleComponent } from './captcha-google/captcha-google.component'
 import { FormBraintreePaymentComponent } from './forms/form-braintree-payment/form-braintree-payment.component'
 import { PolicyPrivacyViewComponent } from './policy/policy-privacy-view/policy-privacy-view.component'
 import { PolicyRefundViewComponent } from './policy/policy-refund-view/policy-refund-view.component'
+import { FeedbackHeaderComponent } from './feedback-header/feedback-header.component'
+import { FeedbackToasterComponent } from './feedback-toaster/feedback-toaster.component'
+import { DeviceComponent } from './device/device.component'
 
 
 
 @NgModule({
   declarations: [
+    FadeInViewDirective,
+    OverlayLoadingComponent,
     HeaderMobileComponent,
+    FooterComponent,
     HeaderPcComponent,
     SchedulerComponent,
-    FadeInViewDirective,
+    SchedulerComponent,
     FeedbackHeaderComponent,
     FeedbackToasterComponent,
     DeviceComponent,
-    OverlayLoadingComponent,
     BackgroundVideoComponent,
     IconSubtitledComponent,
     IconsContainerComponent,
-    FooterComponent,
     FormContactComponent,
-    FormEstimateComponent,
     CaptchaGoogleComponent,
     FormBraintreePaymentComponent,
     PolicyPrivacyViewComponent,
@@ -91,6 +90,7 @@ import { PolicyRefundViewComponent } from './policy/policy-refund-view/policy-re
     HeaderMobileComponent,
     HeaderPcComponent,
     SchedulerComponent,
+    SchedulerComponent,
     FadeInViewDirective,
     SelectButtonModule,
     ButtonModule,
@@ -118,7 +118,6 @@ import { PolicyRefundViewComponent } from './policy/policy-refund-view/policy-re
     IconsContainerComponent,
     FooterComponent,
     FormContactComponent,
-    FormEstimateComponent,
     CaptchaGoogleComponent,
     FormBraintreePaymentComponent,
     PolicyPrivacyViewComponent,

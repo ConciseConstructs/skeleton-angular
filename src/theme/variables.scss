@@ -75,11 +75,11 @@
 
 ion-content {
   --background: transparent;
+  // --background: var(--master-color-primary-gradient)
 }
 
 ion-item {
-  --color: var(--ion-color-primary);
-  --highlight-color-focused: green;
+  --color: var(--ion-color-primary)
 }
 
 ion-segment-button {

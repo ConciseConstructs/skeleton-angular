@@ -1,0 +1,141 @@
+<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+  <app-mobile-header title="Settings" displayBackButton="true"></app-mobile-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h1>Settings</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>User Logout</h3>
+        <div class="formContent">
+          <ion-button (click)="onLogoutButtonClick()">
+            Logout
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="timezones">
+      <ion-row>
+        <ion-col size="12">
+          <h3>Timezone</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label>Timezone:</ion-label>
+            <ion-select [(ngModel)]="timezone" multiple="false" placeholder="Choose Timezone">
+              <ion-select-option *ngFor="let zone of timezonesObject" [value]="zone">{{ zone.label }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="secondary" (click)="onDetectTimeZone()">Detect Timezone</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row>
+      <ion-col size="12">
+        <h3>Default Streak</h3>
+        <p>{{ site.settings.descriptions.streak }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item style="margin-top: 2rem">
+          <ion-label>Default Streak Number:</ion-label>
+          <ion-input type="number" [(ngModel)]="defaultStreak"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Notifications</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h5>Email:</h5>
+        <ion-checkbox [(ngModel)]="emailNotifications"></ion-checkbox>
+        <ion-label style="margin-left: 1rem;">{{ email }}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div id="devices" *ngIf="devices.length > 0">
+          <h5>Devices</h5>
+          <div class="formContent">
+            <p>These are devices you've used the QA app on and are capable of receiving "Quiz Due" push notifications.</p>
+            <app-device *ngFor="let device of devices" [device]="device" (onRemove)="onDeviceRemove($event)"></app-device>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="full" color="tertiary" (click)="onUpdateButtonClick()">Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+  <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
+  <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <h1 id="title">Settings</h1>
+    <div id="logout">
+      <h3>User Logout</h3>
+      <div class="formContent">
+        <button label="Logout" (click)="onLogoutButtonClick()" pButton></button>
+      </div>
+      <hr>
+    </div>
+    <div *ngIf="timezones" id="timezones">
+      <h3>Timezone</h3>
+      <div class="formContent">
+        <p-dropdown [options]="timezonesObject" [(ngModel)]="timezone" placeholder="Choose Timezone" optionLabel="label"></p-dropdown>
+        <br>
+        <br>
+        <button label="Detect Timezone" (click)="onDetectTimeZone()" pButton></button>
+      </div>
+      <hr>
+    </div>
+    <div id="defaultStreak">
+      <h3>Default Streak</h3>
+      <div class="formContent">
+        <p>{{ site.settings.descriptions.streak }}</p>
+      </div>
+      <div id="defaultStreakInput" class="formContent">
+        <ion-label>Default Streak Number:</ion-label>
+        <p-spinner [(ngModel)]="defaultStreak"></p-spinner>
+      </div>
+      <hr>
+    </div>
+    <h3>Notifications</h3>
+    <div id="emailNotifications">
+      <h5>Email:</h5>
+      <div class="formContent">
+        <p>{{ site.settings.descriptions.emailNotifications }}</p>
+        <p-toggleButton [(ngModel)]="emailNotifications" [onLabel]="email" [offLabel]="email" onIcon="pi pi-check" offIcon="pi pi-times" iconPos="left"></p-toggleButton><span style="margin-left: 1rem;">{{ emailNotificationStatus }}</span>
+      </div>
+      <hr>
+    </div>
+    <div id="devices" *ngIf="devices.length > 0">
+      <h5>Devices:</h5>
+      <div class="formContent">
+        <p>These are devices you've used the QA app on and are capable of receiving "Quiz Due" push notifications.</p>
+        <app-device *ngFor="let device of devices" [device]="device" (onRemove)="onDeviceRemove($event)"></app-device>
+      </div>
+    </div>
+    <hr>
+    <div id="updateButton">
+      <button class="submitButton" label="Update" (click)="onUpdateButtonClick()" pButton></button>
+    </div>
+  </div>
+</section>

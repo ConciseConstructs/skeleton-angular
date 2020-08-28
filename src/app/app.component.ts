@@ -11,14 +11,11 @@ import { SiteService } from './services/site/site.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
-
-
   constructor(
     public site:SiteService,
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private platform:Platform,
+    private splashScreen:SplashScreen,
+    private statusBar:StatusBar,
   ) {
     this.initializeApp()
   }

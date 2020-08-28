@@ -2,8 +2,17 @@
   <div id="backOptionContainer" class="verticalAlign">
     <a *ngIf="displayBackButton" (click)="onBackLinkClick()">Back</a>
   </div>
+  <div>
+    <span class="clickable" (click)="onDashboardClick()">Dashboard</span>
+    <span *ngFor="let crumb of breadcrumbs" (click)="onCrumbClick(crumb)" [ngClass]="isClickable(crumb)">  > {{ crumb.label }}</span>
+  </div>
   <div class="verticalAlign">
     <h1>{{ title }}</h1>
+  </div>
+  <div id="iconContainer">
+    <ion-icon class="clickable" name="search" (click)="onSearchButtonClick()"></ion-icon>
+    <ion-icon class="clickable" name="add" (click)="onAddButtonClick()"></ion-icon>
+    <ion-icon class="clickable" name="settings" (click)="onSettingsButtonClick()"></ion-icon>
   </div>
   <div>
     <!-- Empty Filler for flexbox content placing -->

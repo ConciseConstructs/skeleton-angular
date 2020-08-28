@@ -3,6 +3,12 @@ div#background {
   height: 100%;
   width: 100%;
   background: var(--master-color-primary-gradient);
+  #logo {
+    font-size: 63rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.198);
+    margin-left: 3rem;
+  }
 }
 
 div#main {

@@ -1,3 +1,13 @@
+@import './master-variables.scss';
+
+section#pc {
+  height: 100%;
+  width: 100%;
+  overflow: overlay;
+  color: var(--master-color-secondary);
+}
+
 #body {
   margin: 2rem;
 }
+

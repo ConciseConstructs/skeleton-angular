@@ -14,10 +14,11 @@ import { EventsService } from '../events/events.service';
 export class JobsService {
 
 
+
   constructor(
+    private events:EventsService,
     public pushNotificationJob:PushNotificationJobMakerService,
     public sendEmailJob:SendEmailJobMakerService,
-    private events:EventsService,
     private http:HttpClient,
   ) { }
 

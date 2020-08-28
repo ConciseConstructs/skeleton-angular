@@ -21,6 +21,8 @@ export class SettingsService {
   }
   public descriptions: {
     username:string
+    streak:string
+    emailNotifications:string
   }
   public values:{
     email:string
@@ -28,7 +30,8 @@ export class SettingsService {
   }
 
 
-  constructor() {
+  constructor(
+  ) {
     this.setStandardMessages()
     this.createUiDescriptions()
     this.setValues()
@@ -60,6 +63,8 @@ export class SettingsService {
       private createUiDescriptions() {
         this.descriptions = {
           username: 'email',
+          streak: `This is how many consecutive correct answers before that question is moved to a different bucket (which is quized less often).`,
+          emailNotifications: `Toggle "Quiz Due" email notifications.`
         }
       }
 
@@ -68,7 +73,7 @@ export class SettingsService {
 
       private setValues() {
         this.values = {
-          email: `REPLACE_ME`,
+          email: `PLACEHOLDER`,
           persistErrorsInterval: 60000
         }
       }

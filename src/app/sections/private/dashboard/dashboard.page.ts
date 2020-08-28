@@ -11,6 +11,7 @@ import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
 export class DashboardPage extends ConciseComponent {
 
 
+
   constructor(
     public site:SiteService,
   ) {
@@ -31,7 +32,7 @@ export class DashboardPage extends ConciseComponent {
   protected init() {
     try { this._init() }
     catch (error) {
-      this.onError({ signature: '1103aa4c-28f1-4bc9-8679-6b1b1dc16fe8', details: error })
+      this.onError({ signature: 'error-1103aa4c-28f1-4bc9-8679-6b1b1dc16fe8', details: error })
     }
   }
 

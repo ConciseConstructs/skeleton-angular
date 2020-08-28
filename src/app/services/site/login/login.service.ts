@@ -106,7 +106,6 @@ export class LoginService {
 
 
 
-0
       private _attemptLogin(params) {
         this.auth.attemptAuth(params)
           .then(result => this.onAuthSuccess(result))

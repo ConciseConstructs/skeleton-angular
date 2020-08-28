@@ -20,4 +20,4 @@ export const environment = {
     login: `xdbqz3xpxk`,
     schedule: `wwmf58qpya`,
   }
-};
+}

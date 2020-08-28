@@ -1,5 +1,7 @@
 {
-  "name": "Concise Constructs",
-  "integrations": {},
+  "name": "qa",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

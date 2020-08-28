@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs'
 import { StandardReturn } from 'src/assets/types/StandardReturn.type';
+import { Quiz } from 'src/assets/models/Quiz.model';
+import { Tag } from 'src/assets/models/Tag.model';
+import { Question } from 'src/assets/models/Question.model';
+import { Settings } from 'src/assets/models/Settings.model';
 import { ScreenSummary } from 'src/assets/types/ScreenSummary.type';
 import { UiFeedback } from 'src/assets/types/UiFeedback.type';
 
@@ -31,6 +35,18 @@ export class EventsService {
   public onNewDateDue:BehaviorSubject<any>
   public onCaptchaSubmission:Subject<string>
   public onVerifyHuman:Subject<boolean>
+  public onNewQuestions:BehaviorSubject<Question[]>
+  public onNewQuizes:BehaviorSubject<Quiz[]>
+  public onNewTags:BehaviorSubject<Tag[]>
+  public onNewSettings:BehaviorSubject<Settings>
+  public onRequestTagsSync:Subject<Tag[]>
+  public onRequestTagsSyncOutcome:Subject<StandardReturn>
+  public onRequestQuestionsSync:Subject<Question[]>
+  public onRequestQuestionsSyncOutcome:Subject<StandardReturn>
+  public onRequestQuizesSync:Subject<Quiz[]>
+  public onRequestQuizesSyncOutcome:Subject<StandardReturn>
+  public onChannelPrimary:Subject<UiFeedback>
+  public onChannelSecondary:Subject<UiFeedback>
   public onError:Subject<{ signature:string, details:any }>
 
 
@@ -63,6 +79,24 @@ export class EventsService {
         this.onRequestRecordRemovalSyncOutcome = new Subject()
         this.onCaptchaSubmission = new Subject()
         this.onVerifyHuman = new Subject()
+        this.onNewQuestions = new BehaviorSubject(null)
+        this.onNewQuizes = new BehaviorSubject(null)
+        this.onNewTags = new BehaviorSubject(null)
+        this.onNewSettings = new BehaviorSubject(null)
+        this.onConnectionChange = new BehaviorSubject({ success: true, details: 'Initial state is presumed online' })
+        this.onRequestTagsSync = new Subject()
+        this.onRequestTagsSyncOutcome = new Subject()
+        this.onRequestQuestionsSync = new Subject()
+        this.onRequestQuestionsSyncOutcome = new Subject()
+        this.onRequestQuizesSync = new Subject()
+        this.onRequestQuizesSyncOutcome = new Subject()
+        this.onRequestRecordRemovalSync = new Subject()
+        this.onRequestRecordRemovalSyncOutcome = new Subject()
+        this.onSynchronizedDatabase = new Subject()
+        this.onChannelPrimary = new Subject()
+        this.onChannelSecondary = new Subject()
+        this.onDeviceInfo = new BehaviorSubject(null)
+        this.onNewDevices = new Subject()
         this.onError = new Subject()
       }
 

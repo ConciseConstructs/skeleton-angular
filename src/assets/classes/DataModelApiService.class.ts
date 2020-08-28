@@ -3,7 +3,7 @@ import { StandardReturn } from 'src/assets/types/StandardReturn.type';
 import { environment as saas } from '../../environments/environment'
 import { HttpOptions } from 'src/assets/classes/HttpOptions.class';
 import { IUpdateRequest } from 'src/assets/interfaces/icrud/IUpdateRequest.interface';
-import { IReadAllRequest } from 'src/assets/interfaces/icrud/IReadAllRequest.interface';
+import { IReadRequest } from 'src/assets/interfaces/icrud/IReadRequest.interface';
 import { IDeleteRequest } from 'src/assets/interfaces/icrud/IDeleteRequest.interface';
 
 
@@ -55,7 +55,7 @@ export abstract class DataModelApiService {
   public getRecords(accountId:string):Promise<StandardReturn> {
     if (!accountId) throw new Error('error-874811f3-a5a6-42d5-8421-17b17a3a9dfd')
     let options = new HttpOptions()
-    options.params = { accountId: accountId } as IReadAllRequest
+    options.params = { accountId: accountId } as IReadRequest
     return this.http.get(this.url + `/read-all`, options).toPromise() as Promise<StandardReturn>
   }
 

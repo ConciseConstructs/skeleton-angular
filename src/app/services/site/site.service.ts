@@ -33,12 +33,13 @@ import { CaptchaService } from './captcha/captcha.service';
 export class SiteService {
 
   public saasName:string
+  private hasNotifiedOffline:boolean
 
 
   constructor(
-    public events:EventsService,
     public readonly globals:GlobalsService,
     public readonly contact:ContactService,
+    public readonly error:ErrorService,
     public readonly registration:RegistrationService,
     public readonly auth:AuthService,
     public readonly login:LoginService,
@@ -55,11 +56,11 @@ export class SiteService {
     public readonly push:PushService,
     public readonly jobs:JobsService,
     public readonly captcha:CaptchaService,
+    public events:EventsService,
+    public storage:StorageService,
     public offline:OfflineService,
     public settings:SettingsService,
     public shared:SharedService,
-    private readonly error:ErrorService,
-    public storage:StorageService,
   ) {
     this.globals.getAllGlobals()
     this.setupValues()
@@ -71,6 +72,7 @@ export class SiteService {
 
 
       private setupValues() {
+        this.hasNotifiedOffline = false
         this.saasName = saas.name
       }
 
@@ -169,9 +171,38 @@ export class SiteService {
 
 
       private _onConnectionChange(connection) {
-        if (!connection.success) this.ui.notifyUserTheyAreOffline()
-        else this.ui.notifyUserTheyAreOnline()
+        if (!connection.success && !this.hasNotifiedOffline) this.notifyUserTheyAreOffline()
+        else this.notifyUserTheyAreOnline()
       }
+
+
+
+
+          private notifyUserTheyAreOffline() {
+            let delayIncaseAppIsBootstrappingInterval = 1000
+            this.waitForUiFeedbackComponentsToBootstrap(delayIncaseAppIsBootstrappingInterval)
+          }
+
+
+
+
+              private waitForUiFeedbackComponentsToBootstrap(interval) {
+                setTimeout(()=> {
+                  this.ui.userFeedbackChannelSecondary({ message: 'No connection, now in offline mode.', state: 'error' })
+                  this.hasNotifiedOffline = true
+                }, interval)
+              }
+
+
+
+
+          private notifyUserTheyAreOnline() {
+            this.ui.userFeedbackChannelSecondary({ message: 'You are back online, synchronizing records.', state: 'success' })
+          }
+
+
+
+
 
 
 
@@ -207,10 +238,7 @@ export class SiteService {
 
       private _loadRecords() {
         if (!sessionStorage.getItem('acctId')) return
-        else {
-          this.loadRecordsViaModelProcessors()
-          this.loadSettings(sessionStorage.getItem('acctId'))
-        }
+        else this.loadRecordsViaModelProcessors()
       }
 
 
@@ -221,22 +249,6 @@ export class SiteService {
               if ('loadRecords' in properties) (processor as any).loadRecords()
             }
           }
-
-
-
-
-          private loadSettings(accountId) {
-            // this.api.settings.getRecords(accountId)
-            //   .then(result => this.onLoadSettings(result))
-          }
-
-
-
-
-              private onLoadSettings(result) {
-                this.offline.createTable({ table: `${ sessionStorage.getItem('acctId') }.settings`, records: result.details.Items[0] })
-                // this.userSettings.records = result.details.Items
-              }
 
 
 

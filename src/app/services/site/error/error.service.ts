@@ -97,9 +97,15 @@ export class ErrorService extends DataModelApiService {
 
       private determineDetailsByErrorType(error) {
         switch (error.constructor) {
-          case (ReferenceError): return error.toString()
-          case (TypeError): return error.message
-          default: return error
+          case (ReferenceError):
+            return error.toString()
+            break;
+          case (TypeError):
+            return error.message
+            break;
+          default:
+            return error
+            break;
         }
       }
 

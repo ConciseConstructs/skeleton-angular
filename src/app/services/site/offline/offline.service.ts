@@ -93,7 +93,7 @@ export class OfflineService {
   public getTable(tableName:string):any[] {
     try { return this._getTable(tableName) }
     catch (error) {
-      this.events.onError.next({ signature: 'df5e9397-b60b-4740-bdb4-85f371a37456', details: error })
+      this.events.onError.next({ signature: 'error-df5e9397-b60b-4740-bdb4-85f371a37456', details: error })
     }
   }
 
@@ -118,7 +118,7 @@ export class OfflineService {
   public createTable(params:{ table:string, records:any[] }) {
     try { this._createTable(params) }
     catch (error) {
-      this.events.onError.next({ signature: '87aa5247-0b0f-40e3-9b73-dbd83674cb62', details: error })
+      this.events.onError.next({ signature: 'error-87aa5247-0b0f-40e3-9b73-dbd83674cb62', details: error })
     }
   }
 

@@ -1,0 +1,1 @@
+export type Breadcrumbs = { label:string, url?:string[] }[]

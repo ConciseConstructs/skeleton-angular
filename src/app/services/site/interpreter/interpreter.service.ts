@@ -16,7 +16,7 @@ export class InterpreterService {
   constructor(
     public form:FormService,
     private events:EventsService,
-    private settings:SettingsService,
+    private settings:SettingsService
   ) { }
 
 
@@ -162,7 +162,7 @@ export class InterpreterService {
 
 
   private interpretErrorCode(error) {
-    // Develop this as error codes are encountered
+    // Need to develop this as error codes are encountered
     if (error.code === "InvalidParameterException" && error.message === "Cannot perform specific action because there does not exist a valid use pool domain associated with the user pool") return this.genericErrorMessage
     else switch (error.code) {
       case "": return

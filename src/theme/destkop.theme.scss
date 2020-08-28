@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import '../assets/sass/master-variables.scss';
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -111,6 +110,8 @@ body textarea, input {
 }
 body textarea:focus, input:focus {
   outline: none !important;
+    // border:1px solid red;
+    // box-shadow: 0 0 10px #719ECE;
   -webkit-box-shadow: 0 0 0 0.1em var(--master-color-secondary-tint);
   -moz-box-shadow: 0 0 0 0.1em var(--master-color-secondary-tint);
   box-shadow: 0 0 0 0.1em var(--master-color-secondary-tint);

@@ -11,7 +11,6 @@ import { Device } from 'src/assets/models/Device.model';
 })
 export class DevicesProcessingService extends DataModelProcessingService {
 
-
   constructor(
     protected events:EventsService,
     protected api:ApiService,

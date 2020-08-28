@@ -256,7 +256,7 @@ export abstract class DataModelProcessingService {
 
 
 
-              protected onSaveRecordFailure(result, record) {
+              protected onSaveRecordFailure(result, record) {  console.error('error-a9cece06-8a7b-4f81-b005-3bc4ade2924a', result)
                 this.events.onError.next({ signature: 'error-d65f6c3c-4ef4-4778-97d7-3d81c58e3326', details: result })
                 this.hookOnSaveRecordFailurePre()
                 this.processSaveRecordFailure(result, record)
@@ -272,6 +272,7 @@ export abstract class DataModelProcessingService {
                     this.events.onConnectionChange.next({ success: false, details: this })
                     if (result.details) result.details.offline = true
                     else result.details = { offline: true }
+                    result.details.offline = true
                     this.records = this.offline.insertItem({ table: `${ sessionStorage.getItem('acctId') }.${ this.modelName }`, record: result.details })
                   }
 
@@ -335,7 +336,7 @@ export abstract class DataModelProcessingService {
 
 
 
-              protected onUpdateRecordFailure(result, record) {
+              protected onUpdateRecordFailure(result, record) {  console.error('error-ceb2b970-08bb-4049-866a-ba3b5aa28a9f', result)
                 this.events.onError.next({ signature: 'error-f2b6ebec-30b1-4ecb-a8e9-6b3b03bebf5a', details: result })
                 this.hookOnUpdateRecordFailurePre()
                 this.processOnUpdateRecordFailure(result)
@@ -391,7 +392,7 @@ export abstract class DataModelProcessingService {
 
 
 
-              protected onRemoveRecordFailure(result, id) {
+              protected onRemoveRecordFailure(result, id) {  console.error('error-327c46ff-7a2a-48ad-89b8-d268888c38db', result)
                 this.events.onError.next({ signature: 'error-59e1f8ce-ad58-4fc5-a063-7acbbc691c0f', details: result })
                 this.hookOnRemoveRecordFailurePre()
                 this.processOnRemoveRecordFailure(result, id)
