@@ -2,10 +2,15 @@ import { SiteService } from 'src/app/services/site/site.service';
 import { Subscription } from 'rxjs';
 import { OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { GenericState } from './GenericState.class';
 
+const now = new GenericState()
 
 export abstract class ConciseComponent implements OnInit, OnDestroy {
 
+  public is:GenericState&string
+  public pageTitle:string
+  public displayBackButton:boolean
   protected eventListeners:Subscription[]
   protected backUrl:string
   protected route?:ActivatedRoute
@@ -13,7 +18,9 @@ export abstract class ConciseComponent implements OnInit, OnDestroy {
 
   constructor(
     public site:SiteService
-  ) {}
+  ) {
+    this.is = now.loading
+  }
 
 
 
@@ -27,9 +34,12 @@ export abstract class ConciseComponent implements OnInit, OnDestroy {
 
 
   public ngOnInit() {
+    if (!this.pageTitle && this.pageTitle !== '') throw new Error('No pageTitle:string variable assigned.')
+    this.displayBackButton = this.displayBackButton || true
     this.eventListeners = [ ]
     if (this.route) this.route.paramMap.subscribe(paramMap => this.onNewParamMap(paramMap))
     this.init()
+    this.is = now.ready
   }
 
 

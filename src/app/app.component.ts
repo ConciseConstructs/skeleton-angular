@@ -3,6 +3,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SiteService } from './services/site/site.service';
+import { Title } from '@angular/platform-browser';
+import { environment as saas } from '../environments/environment'
 
 
 @Component({
@@ -16,8 +18,10 @@ export class AppComponent {
     private platform:Platform,
     private splashScreen:SplashScreen,
     private statusBar:StatusBar,
+    private titleService:Title
   ) {
     this.initializeApp()
+    this.setBrowserTabTitle()
   }
 
 
@@ -43,10 +47,25 @@ export class AppComponent {
 
       private _initializeApp() {
         this.platform.ready().then(() => {
-          this.statusBar.styleDefault();
-          this.splashScreen.hide();
+          this.statusBar.styleDefault()
+          this.splashScreen.hide()
         })
       }
+
+
+
+
+
+
+
+
+
+
+
+
+  public setBrowserTabTitle() {
+    this.titleService.setTitle(saas.appTitle)
+  }
 
 
 

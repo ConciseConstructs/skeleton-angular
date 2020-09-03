@@ -28,6 +28,7 @@ export class SettingsService {
     email:string
     persistErrorsInterval:number
   }
+  public prices:any
 
 
   constructor(
@@ -35,6 +36,7 @@ export class SettingsService {
     this.setStandardMessages()
     this.createUiDescriptions()
     this.setValues()
+    this.setPrices()
   }
 
 
@@ -76,6 +78,13 @@ export class SettingsService {
           email: `PLACEHOLDER`,
           persistErrorsInterval: 60000
         }
+      }
+
+
+
+
+      private setPrices() {
+        this.prices = { }
       }
 
 }
