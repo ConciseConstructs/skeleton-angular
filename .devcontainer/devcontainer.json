@@ -1,0 +1,6 @@
+{
+    "name": "PLACEHOLDER",
+    "dockerFile": "DockerFile",
+    "runArgs": ["-u", "node"],
+    "postCreateCommand": "npm run startContainer",
+}
