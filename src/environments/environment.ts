@@ -5,6 +5,7 @@ export const environment = {
   appWebAddress: 'www.conciseconstructs.com',
   production: false,
   mockOffline: false,
+  downForMaintenance: false,
   protocol: `https`,
   apiUrl: `execute-api.us-east-2.amazonaws.com`,
   stage: `DEV`,

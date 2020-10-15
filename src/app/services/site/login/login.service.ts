@@ -42,6 +42,7 @@ export class LoginService {
 
       private setupEventListeners() {
         this.events.onAuthProfileCreateOutcome.subscribe(outcome => this.onAuthProfileCreateOutcome(outcome))
+        // this.events.onDownForMaintenance.subscribe(result => this.logout())
       }
 
 

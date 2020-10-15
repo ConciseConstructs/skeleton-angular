@@ -1,0 +1,11 @@
+<app-loading *ngIf="is === 'loading'"></app-loading>
+<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+  <section id="header">
+    <app-header-pc *ngIf="site.renderFor === 'pc'" [title]="pageTitle" [displayBackButton]="displayBackButton"></app-header-pc>
+    <app-header-mobile *ngIf="site.renderFor === 'mobile'" [title]="pageTitle" [displayBackButton]="displayBackButton"></app-header-mobile>
+  </section>
+  <section id="body">
+    <h1>Donw For Maintenance</h1>    
+    <p>An update is being applied.  Please check back later.</p>
+  </section>
+</div>

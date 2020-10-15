@@ -48,6 +48,7 @@ export class EventsService {
   public onChannelPrimary:Subject<UiFeedback>
   public onChannelSecondary:Subject<UiFeedback>
   public onError:Subject<{ signature:string, details:any }>
+  public onDownForMaintenance:Subject<null>
 
 
   constructor() {
@@ -98,6 +99,7 @@ export class EventsService {
         this.onDeviceInfo = new BehaviorSubject(null)
         this.onNewDevices = new Subject()
         this.onError = new Subject()
+        this.onDownForMaintenance = new Subject()
       }
 
 }

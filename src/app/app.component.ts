@@ -20,8 +20,16 @@ export class AppComponent {
     private statusBar:StatusBar,
     private titleService:Title
   ) {
+    this.logBasicInfo()
     this.initializeApp()
     this.setBrowserTabTitle()
+  }
+
+  public logBasicInfo() {
+    console.clear()
+    console.log('Version:', saas.version)
+    console.log('Production Stage:', saas.production)
+    if (saas.downForMaintenance) console.warn('Down for Maintenance:', saas.downForMaintenance)
   }
 
 

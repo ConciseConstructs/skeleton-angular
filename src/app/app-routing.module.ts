@@ -7,6 +7,7 @@ const routes:Routes = [
   { path: 'home', loadChildren: () => import('./sections/public/home/home.module').then( m => m.HomePageModule) },
   { path: 'policies', loadChildren: () => import('./sections/public/policies/policies.module').then( m => m.PoliciesPageModule) },
   { path: 'dashboard', canLoad: [SessionGuard], loadChildren: () => import('./sections/private/dashboard/dashboard.module').then( m => m.DashboardPageModule) },
+  { path: 'downForMaintenance', loadChildren: () => import('./sections/public/down-for-maintenance/down-for-maintenance.module').then( m => m.DownForMaintenancePageModule) },
 ]
 
 @NgModule({

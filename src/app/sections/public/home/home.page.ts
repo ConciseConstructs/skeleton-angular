@@ -18,6 +18,7 @@ export class HomePage extends ConciseComponent {
     public site:SiteService
   ) {
     super(site)
+    this.pageTitle = 'PLACEHOLDER'
   }
 
 
@@ -26,12 +27,7 @@ export class HomePage extends ConciseComponent {
       protected init() {
         this.sliderValue = 0
         this.navOptions = [
-          { label: 'Services', value: 'services'},
-          { label: 'Tools', value: 'tools' },
-          { label: 'Estimate', value: 'estimate' },
-          { label: 'Contact', value: 'contact' },
-          { label: 'Payment', value: 'payment' },
-          { label: 'Prices & Policies', value: 'policies' },
+          { label: 'Nothing', value: 'nothing'},
         ]
       }
 
@@ -63,7 +59,8 @@ export class HomePage extends ConciseComponent {
 
 
   public sliderOptionLabel() {
-    return this.navOptions[this.sliderValue].label
+    if (this.navOptions && this.sliderValue) return this.navOptions[this.sliderValue].label
+    else return ''
   }
 
 }

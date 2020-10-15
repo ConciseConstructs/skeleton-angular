@@ -14,7 +14,7 @@
       <h4 id="goToTitle">Go To</h4>
       <div class="menuItem clickable" (click)="onMenuClick()">{{ sliderOptionLabel() }}</div>
     </div>
-    <p-slider [(ngModel)]="sliderValue" [min]="0" [max]="navOptions.length -1" [step]="1"></p-slider>
+    <p-slider *ngIf="navOptions" [(ngModel)]="sliderValue" [min]="0" [max]="navOptions.length -1" [step]="1"></p-slider>
     <h6>Slide for options</h6>
   </section>
 </div>

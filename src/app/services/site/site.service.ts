@@ -25,6 +25,7 @@ import { GlobalsService } from './globals/globals.service';
 import { ContactService } from './contact/contact.service';
 import { StorageService } from './storage/storage.service';
 import { CaptchaService } from './captcha/captcha.service';
+import { NavigationService } from './navigation/navigation.service';
 
 
 @Injectable({
@@ -56,6 +57,7 @@ export class SiteService {
     public readonly push:PushService,
     public readonly jobs:JobsService,
     public readonly captcha:CaptchaService,
+    public readonly navigation:NavigationService,
     public events:EventsService,
     public storage:StorageService,
     public offline:OfflineService,

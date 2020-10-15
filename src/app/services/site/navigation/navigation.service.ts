@@ -3,6 +3,7 @@ import { Router, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd, Rout
 import { Subject } from 'rxjs'
 import { LayersService } from '../layers/layers.service'
 import { environment as saas } from '../../../../environments/environment'
+import { EventsService } from '../events/events.service';
 
 
 
@@ -18,7 +19,8 @@ export class NavigationService {
 
   constructor(
     private router:Router,
-    private layers:LayersService
+    private layers:LayersService,
+    private events:EventsService
   ) {
     this.router.events.subscribe(event => this.onRouterEvent(event))
     this.eventNewLocation = new Subject()
@@ -50,10 +52,27 @@ export class NavigationService {
 
 
 
+
+
+
+
+
+  private downForMaintenance() {
+    this.events.onLoginOutcome.next({ success: false })
+    this.router.navigate(['downForMaintenance'])
+  }
+
+
+
+
+
+
+
 //https://angular.io/guide/router#router-events
 
 private onNavigationStart	(event:NavigationStart) {
-  if (saas.downForMaintenance && event.url !== '/downForMaintenance') this.router.navigate(['downForMaintenance'])
+  if (saas.downForMaintenance && event.url !== '/downForMaintenance') this.downForMaintenance()
+  else if (!saas.downForMaintenance && event.url === '/downForMaintenance') this.router.navigate(['home'])
 }  // An event triggered when navigation starts.
 
 
