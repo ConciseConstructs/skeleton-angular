@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment'
-import { EventsService } from '../../site/events/events.service';
+import { EventsService } from '../../app/events/events.service';
 
 
 @Injectable({

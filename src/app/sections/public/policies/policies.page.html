@@ -1,17 +1,17 @@
-<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+<div id="grid" class="page" fadeInView [ngClass]="app.renderFor">
   <section id="header">
-    <app-header-pc title="Policies" *ngIf="site.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
-    <app-header-mobile title="Policies" *ngIf="site.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
+    <app-header-pc title="Policies" *ngIf="app.renderFor === 'pc'" displayBackButton="true"></app-header-pc>
+    <app-header-mobile title="Policies" *ngIf="app.renderFor === 'mobile'" displayBackButton="true"></app-header-mobile>
   </section>
   <section id="body">
     <div id="heading">
       <h1>{{ policyTitle || 'Choose a Policy' }}</h1>
     </div>
     <div id="sidebar">
-      <p-slideMenu *ngIf="site.renderFor === 'pc'" [model]="items" effectDuration="250" easing="ease-in" viewportHeight="550" (click)="onMenuItemChange($event)"></p-slideMenu>
+      <p-slideMenu *ngIf="app.renderFor === 'pc'" [model]="items" effectDuration="250" easing="ease-in" viewportHeight="550" (click)="onMenuItemChange($event)"></p-slideMenu>
     </div>
     <div id="content">
-      <div *ngIf="site.renderFor === 'mobile'">
+      <div *ngIf="app.renderFor === 'mobile'">
         <p-radioButton name="policyTitle" label="Privacy" value="Privacy" [(ngModel)]="policyTitle"></p-radioButton>
         <p-radioButton name="policyTitle" label="Pricing & Refund" value="Pricing & Refund" [(ngModel)]="policyTitle"></p-radioButton>
       </div>

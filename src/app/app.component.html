@@ -1,12 +1,12 @@
 <ion-app>
-  <div *ngIf="site.layers">
-    <div *ngIf="displayPrimaryChannel" [id]="site.layers['layer-primary-channel'].name" class="layer" [ngStyle]="site.layers['layer-primary-channel'].style">
+  <div *ngIf="app.layers">
+    <div *ngIf="displayPrimaryChannel" [id]="app.layers['layer-primary-channel'].name" class="layer" [ngStyle]="app.layers['layer-primary-channel'].style">
       <app-feedback-header></app-feedback-header>
     </div>
-    <div *ngIf="displaySecondaryChannel" [id]="site.layers['layer-secondary-channel'].name" class="layer" [ngStyle]="site.layers['layer-secondary-channel'].style">
+    <div *ngIf="displaySecondaryChannel" [id]="app.layers['layer-secondary-channel'].name" class="layer" [ngStyle]="app.layers['layer-secondary-channel'].style">
       <app-feedback-toaster></app-feedback-toaster>
     </div>
-    <div *ngIf="displayMain" [id]="site.layers['layer-main'].name" class="layer" [ngStyle]="site.layers['layer-main'].style">
+    <div *ngIf="displayMain" [id]="app.layers['layer-main'].name" class="layer" [ngStyle]="app.layers['layer-main'].style">
       <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
         <p-footer>
           <button id="confirm" type="button" icon="pi pi-check" label="Confirm" (click)="cd.accept()" pButton></button>
@@ -15,7 +15,7 @@
       </p-confirmDialog>
       <ion-router-outlet></ion-router-outlet>
     </div>
-    <div *ngIf="displayBackground" [id]="site.layers['layer-background'].name" class="layer" [ngStyle]="site.layers['layer-background'].style">
+    <div *ngIf="displayBackground" [id]="app.layers['layer-background'].name" class="layer" [ngStyle]="app.layers['layer-background'].style">
       <app-background-video></app-background-video>
     </div>
   </div>

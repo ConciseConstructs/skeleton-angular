@@ -1,6 +1,6 @@
 <div>
   <app-captcha-google *ngIf="!hasVerified"></app-captcha-google>
-  <div id="grid" [ngClass]="site.renderFor">
+  <div id="grid" [ngClass]="app.renderFor">
     <form id="form" *ngIf="hasVerified">
       <legend>Contact Us Form</legend>
       <label for="contactInfo">Your Contact Info: (Email or Phone)

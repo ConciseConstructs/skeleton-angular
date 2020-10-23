@@ -31,7 +31,7 @@ import { NavigationService } from './navigation/navigation.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SiteService {
+export class AppService {
 
   public saasName:string
   private hasNotifiedOffline:boolean

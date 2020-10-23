@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class FormContactComponent implements OnInit {
 
 
   constructor(
-    public site:SiteService,
+    public app:AppService,
   ) {
     this.output = new EventEmitter()
   }
@@ -35,7 +35,7 @@ export class FormContactComponent implements OnInit {
 
   public ngOnInit() {
     this.hasVerified = false
-    this.site.events.onVerifyHuman.subscribe(result => this.onVerifyHuman(result))
+    this.app.events.onVerifyHuman.subscribe(result => this.onVerifyHuman(result))
   }
 
 

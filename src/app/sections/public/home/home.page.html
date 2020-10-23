@@ -1,10 +1,10 @@
-<div id="grid" class="page" fadeInView [ngClass]="site.renderFor">
+<div id="grid" class="page" fadeInView [ngClass]="app.renderFor">
   <section id="menu">
     <div *ngFor="let option of navOptions" class="menuItem clickable" (click)="onMenuClick(option.value)">{{ option.label }}</div>
   </section>
-  <section id="logo" [ngClass]="site.renderFor">
+  <section id="logo" [ngClass]="app.renderFor">
     <video id="logoVideo" width="360" src="../../../../assets/video/logo_tight.webm" muted autoplay loop playsinline></video>
-    <div id="logoTitles" [ngClass]="site.renderFor">
+    <div id="logoTitles" [ngClass]="app.renderFor">
       <h4>Concise Constructs</h4>
       <h5>Cloud Applications and Site Solutions</h5>
     </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -15,9 +15,9 @@ export class HomePage extends ConciseComponent {
 
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) {
-    super(site)
+    super(app)
     this.pageTitle = 'PLACEHOLDER'
   }
 
@@ -43,8 +43,8 @@ export class HomePage extends ConciseComponent {
 
 
   public onMenuClick(section?:string) {
-    if (!section) this.site.router.navigate([this.navOptions[this.sliderValue].value])
-    else this.site.router.navigate([section])
+    if (!section) this.app.router.navigate([this.navOptions[this.sliderValue].value])
+    else this.app.router.navigate([section])
   }
 
 

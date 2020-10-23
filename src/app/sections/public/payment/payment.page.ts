@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
 
 @Component({
@@ -10,9 +10,9 @@ import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
 export class PaymentPage extends ConciseComponent {
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) {
-    super(site)
+    super(app)
   }
 
 }

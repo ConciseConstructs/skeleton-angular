@@ -1,4 +1,4 @@
-<ion-content fadeInView *ngIf="site.renderFor === 'mobile'">
+<ion-content fadeInView *ngIf="app.renderFor === 'mobile'">
   <app-mobile-header title="Settings" displayBackButton="true"></app-mobile-header>
   <ion-grid fixed>
     <ion-row>
@@ -42,7 +42,7 @@
     <ion-row>
       <ion-col size="12">
         <h3>Default Streak</h3>
-        <p>{{ site.settings.descriptions.streak }}</p>
+        <p>{{ app.settings.descriptions.streak }}</p>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -85,9 +85,9 @@
   </ion-grid>
 </ion-content>
 
-<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+<section fadeInView *ngIf="app.renderFor === 'pc'" id="pc">
   <app-pc-header [breadcrumbs]="breadcrumbs"></app-pc-header>
-  <div id="grid" [ngClass]="site.screen.deviceClasses">
+  <div id="grid" [ngClass]="app.screen.deviceClasses">
     <h1 id="title">Settings</h1>
     <div id="logout">
       <h3>User Logout</h3>
@@ -109,7 +109,7 @@
     <div id="defaultStreak">
       <h3>Default Streak</h3>
       <div class="formContent">
-        <p>{{ site.settings.descriptions.streak }}</p>
+        <p>{{ app.settings.descriptions.streak }}</p>
       </div>
       <div id="defaultStreakInput" class="formContent">
         <ion-label>Default Streak Number:</ion-label>
@@ -121,7 +121,7 @@
     <div id="emailNotifications">
       <h5>Email:</h5>
       <div class="formContent">
-        <p>{{ site.settings.descriptions.emailNotifications }}</p>
+        <p>{{ app.settings.descriptions.emailNotifications }}</p>
         <p-toggleButton [(ngModel)]="emailNotifications" [onLabel]="email" [offLabel]="email" onIcon="pi pi-check" offIcon="pi pi-times" iconPos="left"></p-toggleButton><span style="margin-left: 1rem;">{{ emailNotificationStatus }}</span>
       </div>
       <hr>

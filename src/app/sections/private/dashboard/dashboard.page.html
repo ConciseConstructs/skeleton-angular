@@ -1,4 +1,4 @@
-<ion-content fadeInView *ngIf="site.renderFor === 'mobile'" id="mobile">
+<ion-content fadeInView *ngIf="app.renderFor === 'mobile'" id="mobile">
   <app-mobile-header title="Dashboard"></app-mobile-header>
   <ion-grid fixed>
     <ion-row>
@@ -25,9 +25,9 @@
   </ion-grid>
 </ion-content>
 
-<section fadeInView *ngIf="site.renderFor === 'pc'" id="pc">
+<section fadeInView *ngIf="app.renderFor === 'pc'" id="pc">
   <app-pc-header></app-pc-header>
-  <div id="grid" [ngClass]="site.deviceClasses">
+  <div id="grid" [ngClass]="app.deviceClasses">
     <div id="quizSelection">
       <h1>Take Quiz</h1>
       <p-dropdown [options]="quizes" [(ngModel)]="quiz" placeholder="Select One" optionLabel="name"></p-dropdown>

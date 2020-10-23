@@ -1,10 +1,10 @@
-<div id="grid" fadeInView [ngClass]="site.renderFor">
+<div id="grid" fadeInView [ngClass]="app.renderFor">
   <section id="header">
-    <app-header-pc *ngIf="site.renderFor === 'pc'" title="Contact Us" displayBackButton="true"></app-header-pc>
-    <app-header-mobile *ngIf="site.renderFor === 'mobile'" title="Contact Us" displayBackButton="true"></app-header-mobile>
+    <app-header-pc *ngIf="app.renderFor === 'pc'" title="Contact Us" displayBackButton="true"></app-header-pc>
+    <app-header-mobile *ngIf="app.renderFor === 'mobile'" title="Contact Us" displayBackButton="true"></app-header-mobile>
   </section>
   <section id="body">
     <app-form-contact (output)="onFormContactSubmit($event)" [contactData]="contactData"></app-form-contact>
   </section>
-  <app-footer *ngIf="site.renderFor === 'pc'"></app-footer>
+  <app-footer *ngIf="app.renderFor === 'pc'"></app-footer>
 </div>

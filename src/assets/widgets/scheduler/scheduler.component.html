@@ -1,4 +1,4 @@
-<section *ngIf="site.renderFor === 'mobile'">
+<section *ngIf="app.renderFor === 'mobile'">
   <form *ngIf="form" [formGroup]="form">
     <ion-grid fixed>
       <ion-row>
@@ -40,10 +40,10 @@
   </form>
 </section>
 
-<section *ngIf="site.renderFor === 'pc'" id="pc">
+<section *ngIf="app.renderFor === 'pc'" id="pc">
   <form [formGroup]="form">
     <h2>Rate:</h2>
-    <div id="grid" [ngClass]="site.screen.deviceClasses">
+    <div id="grid" [ngClass]="app.screen.deviceClasses">
       <div id="rateContainer" class="formContent">
         <h3>Every (number):</h3>
         <p-spinner formControlName="rate" min="1"></p-spinner>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
 import { Breadcrumbs } from 'src/assets/types/Breadcrumbs.type';
 
@@ -21,9 +21,9 @@ export class SettingsPage extends ConciseComponent {
 
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) {
-    super(site)
+    super(app)
   }
 
 
@@ -48,12 +48,12 @@ export class SettingsPage extends ConciseComponent {
 
 
       private _init() {
-        // this.defaultStreak = this.site.settings.preferences.streak || 3
+        // this.defaultStreak = this.app.settings.preferences.streak || 3
         this.email = JSON.parse(localStorage.getItem(`${ sessionStorage.getItem('acctId') }.settings`)).email
         this.emailNotifications = JSON.parse(localStorage.getItem(`${ sessionStorage.getItem('acctId') }.settings`)).emailNotifications
-        this.timezones = this.site.time.timezones
+        this.timezones = this.app.time.timezones
         this.timezonesObject = this.timezones.map(timezone => { return { label: timezone, value: timezone } })
-        // if (this.site.settings.preferences.timezone) this.timezone = { label: this.site.settings.preferences.timezone, value: this.site.settings.preferences.timezone }
+        // if (this.app.settings.preferences.timezone) this.timezone = { label: this.app.settings.preferences.timezone, value: this.app.settings.preferences.timezone }
         // else this.onDetectTimeZone()
         this.backUrl = 'dashboard'
         this.createBreadCrumbs()
@@ -90,7 +90,7 @@ export class SettingsPage extends ConciseComponent {
 
 
       private _onDetectTimeZone() {
-        let guess = this.site.time.guessTimeZone()
+        let guess = this.app.time.guessTimeZone()
         this.timezone = this.timezonesObject.find(timezone => timezone.value === guess)
       }
 
@@ -116,8 +116,8 @@ export class SettingsPage extends ConciseComponent {
 
 
       private _onUpdateButtonClick() {
-        let utcOffset = this.site.time.getUtcOffset(this.timezone.value)
-        // this.site.settings.preferences.save({ streak: this.defaultStreak, timezone: this.timezone.value, utcOffset: utcOffset, email: this.email, emailNotifications: this.emailNotifications })
+        let utcOffset = this.app.time.getUtcOffset(this.timezone.value)
+        // this.app.settings.preferences.save({ streak: this.defaultStreak, timezone: this.timezone.value, utcOffset: utcOffset, email: this.email, emailNotifications: this.emailNotifications })
         this.navigateBack()
       }
 
@@ -143,7 +143,7 @@ export class SettingsPage extends ConciseComponent {
 
 
       private _onDeviceRemove(event) {
-        // this.site.devices.remove({ accountId: this.site.session.acctId, id: event.id })
+        // this.app.devices.remove({ accountId: this.app.session.acctId, id: event.id })
         //   .then(result => this.onRemoveDeviceSuccess(result))
         //   .catch(error => this.onRemoveDeviceFailure(error))
       }
@@ -152,14 +152,14 @@ export class SettingsPage extends ConciseComponent {
 
 
           private onRemoveDeviceFailure(error) {  console.error('error-1762c33e-1fd7-4cab-a4b8-f7b280b65254', error)
-            this.site.ui.userFeedbackChannelSecondary({ message: 'Failed to Remove Device', state: 'error' })
+            this.app.ui.userFeedbackChannelSecondary({ message: 'Failed to Remove Device', state: 'error' })
           }
 
 
 
 
           private onRemoveDeviceSuccess(result) {
-            this.site.ui.userFeedbackChannelSecondary({ message: 'Device removed.', state: 'success' })
+            this.app.ui.userFeedbackChannelSecondary({ message: 'Device removed.', state: 'success' })
           }
 
 
@@ -184,7 +184,7 @@ export class SettingsPage extends ConciseComponent {
 
 
       private _onLogoutButtonClick() {
-        this.site.login.logout()
+        this.app.login.logout()
       }
 
 
@@ -210,7 +210,7 @@ export class SettingsPage extends ConciseComponent {
 
       private _devices() {
         return null
-        // return this.site.devices.records
+        // return this.app.devices.records
       }
 
 

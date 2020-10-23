@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ScheduleDetails } from 'src/assets/types/ScheduleDetails.type';
 import { ScheduleProcessingService } from 'src/app/services/processors/schedule-processing/schedule-processing.service';
@@ -20,7 +20,7 @@ export class SchedulerComponent implements OnInit {
 
 
   constructor(
-    public site:SiteService,
+    public app:AppService,
     private scheduleService:ScheduleProcessingService
   ) {
     this.output = new EventEmitter()
@@ -68,7 +68,7 @@ export class SchedulerComponent implements OnInit {
 
           private patchUnitValue() {
             let unit = this.unitOptions.find(option => option.value === this.record.unit)
-            if (unit && this.site.renderFor === 'mobile') this.form.controls.unit.patchValue(unit.value)
+            if (unit && this.app.renderFor === 'mobile') this.form.controls.unit.patchValue(unit.value)
             else if (unit) this.form.controls.unit.patchValue(unit)
           }
 
@@ -145,7 +145,7 @@ export class SchedulerComponent implements OnInit {
 
       private _uiUnit() {
         if (!this.form.controls.unit.value) return
-        else if (this.site.renderFor === 'mobile') return this.unitOptions.find(option => option.value === this.form.controls.unit.value).name
+        else if (this.app.renderFor === 'mobile') return this.unitOptions.find(option => option.value === this.form.controls.unit.value).name
         else return `${ this.form.controls.unit.value.name }`
       }
 
@@ -170,7 +170,7 @@ export class SchedulerComponent implements OnInit {
 
       private _uiTime() {
         if (!this.form.controls.time.value) return
-        let militaryTime = this.site.interpreter.componentOutput('time', this.form.controls.time.value)
+        let militaryTime = this.app.interpreter.componentOutput('time', this.form.controls.time.value)
         return `${ militaryTime } hours.`
       }
 
@@ -194,11 +194,11 @@ export class SchedulerComponent implements OnInit {
 
 
       private async _fixTimePickerUiQuirk() {
-        this.site.layers["layer-main"].style.display = 'none';
-        this.site.layers["layer-background"].style.display = 'none';
+        this.app.layers["layer-main"].style.display = 'none';
+        this.app.layers["layer-background"].style.display = 'none';
         await this.sleepToAvoidTimePickerUiQuirk(1);
-        this.site.layers["layer-background"].style.display = 'block'
-        this.site.layers["layer-main"].style.display = 'block'
+        this.app.layers["layer-background"].style.display = 'block'
+        this.app.layers["layer-main"].style.display = 'block'
       }
 
 
@@ -274,7 +274,7 @@ export class SchedulerComponent implements OnInit {
                 let values = { } as any
                 values.rate = this.form.controls.rate.value
                 values.time = this.form.controls.time.value
-                if (this.site.renderFor === 'mobile') values.unit = this.form.controls.unit.value
+                if (this.app.renderFor === 'mobile') values.unit = this.form.controls.unit.value
                 else if (this.form.controls.unit.value) values.unit = this.form.controls.unit.value.value
                 return values
               }
@@ -317,7 +317,7 @@ export class SchedulerComponent implements OnInit {
 
 
   private onError(params:{ signature:string, details:any }) {
-    this.site.events.onError.next(params)
+    this.app.events.onError.next(params)
   }
 
 }

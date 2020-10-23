@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IconSubtitled } from 'src/assets/types/IconSubtitled.type';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class IconsContainerComponent {
 
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) {
     this.output = new EventEmitter()
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SiteService } from '../../../services/site/site.service';
+import { AppService } from '../../../services/app/app.service'
 import { ConciseComponent } from 'src/assets/classes/ConciseComponent.class';
 
 
@@ -13,9 +13,9 @@ export class DashboardPage extends ConciseComponent {
 
 
   constructor(
-    public site:SiteService,
+    public app:AppService,
   ) {
-    super(site)
+    super(app)
   }
 
 
@@ -54,7 +54,7 @@ export class DashboardPage extends ConciseComponent {
 
 
   public onNavigateButtonClick(location) {
-    try { this.site.router.navigate([location]) }
+    try { this.app.router.navigate([location]) }
     catch (error) {
       this.onError({ signature: 'e05b7f92-a136-48ba-b921-25b73c7c0b7f', details: error })
     }

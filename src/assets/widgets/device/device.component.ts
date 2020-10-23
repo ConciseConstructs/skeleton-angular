@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Device } from '../../types/Device.type'
-import { EventsService } from 'src/app/services/site/events/events.service';
+import { EventsService } from 'src/app/services/app/events/events.service';
 
 
 @Component({

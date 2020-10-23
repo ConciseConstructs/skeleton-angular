@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { environment as saas } from '../../../../environments/environment'
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class PolicyRefundViewComponent implements OnInit {
 
 
   constructor(
-    private site:SiteService
+    private app:AppService
   ) {
     this.appTitle = saas.appTitle
     this.appWebAddress = saas.appWebAddress
@@ -34,7 +34,7 @@ export class PolicyRefundViewComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log('Policy Refund!')
+    
   }
 
 
@@ -76,7 +76,7 @@ export class PolicyRefundViewComponent implements OnInit {
 
 
   public onContactClick() {
-    this.site.router.navigate(['contact'])
+    this.app.router.navigate(['contact'])
   }
 
 }

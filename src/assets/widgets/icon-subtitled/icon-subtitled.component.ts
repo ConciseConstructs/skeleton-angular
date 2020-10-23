@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { IconSubtitled } from 'src/assets/types/IconSubtitled.type';
 import { EventEmitter } from '@angular/core'
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class IconSubtitledComponent implements OnInit {
 
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) {
     this.output = new EventEmitter()
   }

@@ -1,7 +1,7 @@
 import { copyOf } from 'src/assets/utilities/copyOf';
-import { EventsService } from '../../app/services/site/events/events.service';
+import { EventsService } from '../../app/services/app/events/events.service';
 import { ApiService } from '../../app/services/api/api.service';
-import { OfflineService } from '../../app/services/site/offline/offline.service';
+import { OfflineService } from '../../app/services/app/offline/offline.service';
 import { StandardReturn } from '../types/StandardReturn.type';
 
 

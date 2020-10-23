@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment as saas } from '../../../environments/environment'
-import { EventsService } from 'src/app/services/site/events/events.service';
+import { EventsService } from 'src/app/services/app/events/events.service';
 
 
 @Component({

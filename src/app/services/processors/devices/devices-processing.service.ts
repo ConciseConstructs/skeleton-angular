@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataModelProcessingService } from '../../../../assets/classes/DataModelProcessingService.class';
-import { EventsService } from '../../site/events/events.service';
+import { EventsService } from '../../app/events/events.service';
 import { ApiService } from '../../api/api.service';
-import { OfflineService } from '../../site/offline/offline.service';
+import { OfflineService } from '../../app/offline/offline.service';
 import { Device } from 'src/assets/models/Device.model';
 
 

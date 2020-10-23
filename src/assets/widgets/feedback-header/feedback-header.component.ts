@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UiFeedback } from 'src/assets/types/UiFeedback.type';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Component({
@@ -18,9 +18,9 @@ export class FeedbackHeaderComponent {
 
 
   constructor(
-    private site:SiteService
+    private app:AppService
   ) {
-    this.site.events.onUserFeedbackChannelPrimary.subscribe(feedback => this.onFeedback(feedback))
+    this.app.events.onUserFeedbackChannelPrimary.subscribe(feedback => this.onFeedback(feedback))
     this.timeout = 3000
     this.heightTransitionInterval = 400
   }
@@ -39,7 +39,7 @@ export class FeedbackHeaderComponent {
   private onFeedback(feedback:UiFeedback) {
     try { this._onFeedback(feedback) }
     catch (error) {
-      this.site.events.onError.next({ signature: 'error-4e4235f9-a849-4680-8d45-d9343a8444a8', details: error })
+      this.app.events.onError.next({ signature: 'error-4e4235f9-a849-4680-8d45-d9343a8444a8', details: error })
     }
   }
 
@@ -57,7 +57,7 @@ export class FeedbackHeaderComponent {
 
 
           private determineComponentHeight() {
-            if (this.site.renderFor === 'mobile') this.divStyle = this.mobileDivStyle()
+            if (this.app.renderFor === 'mobile') this.divStyle = this.mobileDivStyle()
             else this.divStyle = this.pcDivStyle()
           }
 
@@ -93,7 +93,7 @@ export class FeedbackHeaderComponent {
   private displayMessageWhenHeightGrows(feedback) {
     try { this._displayMessageWhenHeightGrows(feedback) }
     catch (error) {
-      this.site.events.onError.next({ signature: 'error-69523a54-c9e4-4025-94bc-509ba48222a5', details: error })
+      this.app.events.onError.next({ signature: 'error-69523a54-c9e4-4025-94bc-509ba48222a5', details: error })
     }
   }
 
@@ -120,7 +120,7 @@ export class FeedbackHeaderComponent {
   private shrinkComponentAfterInterval() {
     try { this._shrinkComponentAfterInterval() }
     catch (error) {
-      this.site.events.onError.next({ signature: 'error-8c892e6f-17da-4692-ad4d-bdcc26ee9b62', details: error })
+      this.app.events.onError.next({ signature: 'error-8c892e6f-17da-4692-ad4d-bdcc26ee9b62', details: error })
     }
   }
 
@@ -148,7 +148,7 @@ export class FeedbackHeaderComponent {
   public get headingStyle() {
     try { return this._headingStyle() }
     catch (error) {
-      this.site.events.onError.next({ signature: 'error-b5fd51f1-8837-4cd9-bc54-27aeaa84f65c', details: error })
+      this.app.events.onError.next({ signature: 'error-b5fd51f1-8837-4cd9-bc54-27aeaa84f65c', details: error })
     }
   }
 
@@ -156,7 +156,7 @@ export class FeedbackHeaderComponent {
 
 
       private _headingStyle() {
-        if (this.site.renderFor === 'mobile') return this.mobileHeadingStyle()
+        if (this.app.renderFor === 'mobile') return this.mobileHeadingStyle()
         else return this.pcHeadingStyle()
       }
 

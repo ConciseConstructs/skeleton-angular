@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 
 @Injectable({
@@ -10,7 +10,7 @@ import { SiteService } from 'src/app/services/site/site.service';
 export class SessionGuard implements CanLoad {
 
   constructor(
-    private site:SiteService
+    private app:AppService
   ) { }
 
 
@@ -25,7 +25,7 @@ export class SessionGuard implements CanLoad {
 
 
   public canLoad(route:Route, segments:UrlSegment[]):Observable<boolean>|Promise<boolean>|boolean {
-    if (!this.site.session.authId) this.site.router.navigate(['home'])
+    if (!this.app.session.authId) this.app.router.navigate(['home'])
     else return true
   }
 

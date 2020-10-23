@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 @Component({
   selector: 'app-header-pc',
@@ -13,7 +13,7 @@ export class HeaderPcComponent {
 
 
   constructor(
-    private site:SiteService
+    private app:AppService
   ) { }
 
 
@@ -28,7 +28,7 @@ export class HeaderPcComponent {
 
 
   public onBackLinkClick() {
-    this.site.router.navigate(['dashboard'])
+    this.app.router.navigate(['dashboard'])
   }
 
 }

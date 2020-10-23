@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StandardReturn } from 'src/assets/types/StandardReturn.type';
-import { ConnectionService } from '../site/connection/connection.service';
+import { ConnectionService } from '../app/connection/connection.service';
 import { environment as saas } from '../../../environments/environment'
 
 

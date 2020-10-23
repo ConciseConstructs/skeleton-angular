@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SiteService } from 'src/app/services/site/site.service';
+import { AppService } from 'src/app/services/app/app.service';
 
 @Component({
   selector: 'app-down-for-maintenance',
@@ -9,7 +9,7 @@ import { SiteService } from 'src/app/services/site/site.service';
 export class DownForMaintenancePage implements OnInit {
 
   constructor(
-    public site:SiteService
+    public app:AppService
   ) { }
 
   ngOnInit() {
